@@ -166,8 +166,6 @@ For example, to upload the file c:\data.pdf to the compudemy-_your-AWS-username_
 ![image](https://adamtheautomator.com/wp-content/uploads/2020/07/upload-single-file.gif)
 
 Note: S3 bucket names are always prefixed with S3:// when used with AWS CLI
-
-Run the above command in PowerShell, but change the source and destination that fits your environment first. The output should look similar to the demonstration below.
 - List the contents of the bucket after each upload.
 Use the command below to list the objects at the root of the S3 bucket.
 **aws s3 ls s3://compudemy-_your-AWS-username_/**
