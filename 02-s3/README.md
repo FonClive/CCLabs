@@ -190,6 +190,9 @@ For further reading, see the S3 [Access Policy Language Overview](https://docs.a
 
 _What makes "sync" a better choice than "cp" for some S3 uploads?_
 
+aws s3 cp will copy all files, even if they already exist in the destination area. It also will not delete files from your destination if they are deleted from the source. aws s3 sync looks at the destination before copying files over and only copies over files that are new and updated.
+The sync command is better because it is designed to handle keeping two folders in sync while copying the minimum amount of data. Sync should result in less data being pushed into S3 bucket so that should have a less cost overall.
+
 #### Lab 2.1.3: Exclude Private Objects When Uploading to a Bucket
 
 Add a private file to your data directory. Then, upload the directory to your
