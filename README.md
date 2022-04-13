@@ -1,4 +1,4 @@
-<img src="images/Compudemy 4422.jpg" width=15% height=15%>
+<img src="images/Compudemy 4422.jpg" width=25% height=25%>
 
 # Welcome to Compudemy
 
