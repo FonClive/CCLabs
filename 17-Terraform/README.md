@@ -3,22 +3,29 @@
 <!-- TOC -->
 
 - [Terraform](#terraform)
+
+  - [Set Up Terraform](#setup-intro)
+  - [Authenticating Terraform](#terraform-Authentication)
+  - [Getting our Hands Dirty](#getting-our-hands-dirty)
   - [Guidance](#guidance)
   - [Lesson 17.1: Introduction to Terraform](#lesson-171-introduction-to-terraform)
+
     - [Principle 17.1](#principle-171)
     - [Prerequisites 17.1](#prerequisites-171)
+
       - [Lab 17.1.1 Terraform Language Features](#lab-1711-terraform-language-features)
+
         - [Types](#types)
-        - [Built-in Functions](#built-in-functions)
+
         - [Other Important Language Features](#other-important-language-features)
+
       - [Lab 17.1.2 Terraform Resources, Data Sources, and Variables](#lab-1712-terraform-resources-data-sources-and-variables)
         - [Resources](#resources)
         - [Data Sources](#data-sources)
         - [Input Variables](#input-variables)
         - [Local Values](#local-values)
         - [Outputs](#outputs)
-    - [Retrospective 17.1](#retrospective-171)
-      - [Question: Default Minimum Module Files](#question-default-minimum-module-files)
+
   - [Lesson 17.2: Getting Started and Terraform State](#lesson-172-getting-started-and-terraform-state)
     - [Principle 17.2](#principle-172)
     - [Practice 17.2](#practice-172)
@@ -50,6 +57,67 @@
   - [Further Reading](#further-reading)
 
 <!-- /TOC -->
+
+## setup-intro
+
+- Getting started with terraform is quite easy, and runs on all platforms, Linux, mac and windows, detailed instructions are on the official docs [here](https://learn.hashicorp.com/tutorials/terraform/install-cli)
+
+- On Mac
+
+  To setup terraform on a mac, you would need to install using homeBrew, homeBrew is the Package manager for mac Os, you can install homebrew using this [link](https://brew.sh)
+
+  After Installation of home brew, you can confrim the installation using
+
+  ```bash
+    brew --version
+  ```
+
+  After that we can install terraform by pasting the following commands on the terminal
+
+  ```bash
+     brew tap hashicorp/tap
+  ```
+
+  And
+
+  ```bash
+      brew install hashicorp/tap/terraform
+  ```
+
+  Brew would take care of everything, for you adding it terraform to the path, e.t.c
+
+  You can confirm terraform is installed by typing
+
+  ```bash
+    terraform --version
+  ```
+
+- On Windows
+
+  Similar to mac Os, we can install terraform using the windows package manager [chocolatey](https://chocolatey.org)
+
+  First we need to install chocolatey on our windows machine,
+  Run your windows powershell as administrator [more info here](https://chocolatey.org/install)
+
+  Paste the command Below on your powershell terminal
+
+  ```bash
+  Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+  ```
+
+  verify the installation by typing
+
+  ```bash
+    choco --version
+  ```
+
+  verify the Terraform by typing
+
+  ```bash
+    terraform --version
+  ```
+
+  Now you all setup and Good to Go!!!!
 
 ## Guidance
 
@@ -107,57 +175,117 @@ See [the official
 documentation](https://www.terraform.io/docs/configuration/expressions.html#types-and-values)
 for more details on types.
 
-##### Built-in Functions
+## Getting-our-Hands-Dirty
 
-There are [too many functions to go over in explicit
-detail](https://www.terraform.io/docs/configuration/functions.html); most of
-them do what you'd expect given their name. Give them a glance now anyway, and
-come back when you need to reference them later. **Note:** Terraform only supports
-these built-in functions; you cannot define your own.
+In this Example we would spin up a simple EC2 instance with terraform, this would be our first hands on, on setting up infrastructure as code
 
-##### Other Important Language Features
+1. Download and Install [Vscode](https://code.visualstudio.com/download)
+2. login to your AWS Account
+3. Find the EC2 service
+4. Try to launch an Instance, and copy the ami id of any machine image of your choice
 
-Terraform allows you to approximate loop-like behavior when creating resources
-by using a `count` meta-argument in your resource blocks. `count` is fairly
-limited, and the fact that it makes a _list_ (i.e. ordered collection) of
-resources can lead to some unwanted behavior should a resource's index in the
-list need to change.
+## Configuring our provider
 
-In Terraform 0.12 there are two new expressions to help deal with `count`'s
-limitations: You can use a `for` expression to simply loop over a list or map
-(very similar to a Python list or dict comprehension); or you can use a `for_each`
-meta-argument (similarly to `count`) to create a _map_ of resources (based off a
-_map_ or _set_ of strings).
+With terraform we can use diffrent providers, ranging from Azure, google Cloud and even supports smaller providers like digital ocean.
 
-String interpolation is accomplished with `${}` syntax; for example:
+so first we need to specify the provider we want to work with, in our example we would we using AWS
 
-```
-"Hello ${var.world}"
+so in our code editor, create a folder call it terraform-example, open with Vs code, and create a main.tf file, this would represent the starting point for our code
+
+Then in the main.tf file, write this
+
+```bash
+  provider "aws" {
+    region  = "us-east-1"
+  }
 ```
 
-#### Lab 17.1.2 Terraform Resources, Data Sources, and Variables
+## Lets Break This Down
 
-##### Resources
+We start off by specifying the provider with the provider keyword, followed by the provider we want to use e.g aws, azurem, digital_ocean e.t.c
 
-Terraform infrastructure is created through _resource_ elements, declared in
-blocks as follows:
+one of the required values in this provider is the default region we want to create a resource, here we use us-east-1
 
-```
-resource "aws_instance" "my_instance" {
-  instance_type = "t2.micro"
-  ami           = "ami-1234567890"
-}
+```bash
+  region = "us-east-1"
 ```
 
-The combination of _resource type_ and _resource name_ must be unique; this
-allows the resource to be referenced throughout your code. You can reference an
-argument set in the resource configuration: `aws_instance.my_instance.ami`
-would evaluate to `ami-1234567890"`. You can also reference attributes of the
-resources you create (it is up to the provider to implement this):
-`aws_instance.my_instance.id` would give you the instance id. See the provider
-docs for a list of exported attributes for a resource type.
+## Terraform-Authentication
 
-##### Data Sources
+We have to give access to terraform to create resources in our AWS account, and there is quite a number of ways to this, namely
+
+1. [Shared Configuration and Credentials Files](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
+2. [Environment Variables](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
+3. [Provider Configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
+
+For this example we would use the provider credentials for simplicity
+
+```bash
+  provider "aws" {
+    region     = "us-west-2"
+    access_key = "my-access-key"
+    secret_key = "my-secret-key"
+  }
+```
+
+In Our main.tf file to represent a starting point for code, then pasting the Example above, to Authenticate terraform to create resources to our AWS account
+
+```bash
+  resource "aws_instance" "my_ec2_server" {
+      ami = "your AMI"
+      instance_type = "t2.micro"
+  }
+```
+
+Next we create an EC2 instance with this command, but what dose this code mean, lets break it down
+
+1. We start off by specifying the resource type, with the resource keyword, like when creating any aws resource
+2. The Second paramter would represent the local reference for terraform to access this resource
+3. We specify the two required values for our aws instance to run which is the [ami](#Getting-our-Hands-Dity) from our aws instance type, which we would use t2.micro to stay in the free teir
+
+Next we write terraform init, to intialized our project with terraform, and pull down resources from the specified provider
+
+```bash
+  terraform init
+```
+
+We run terraform plan to see the changes we are about to make in our infrastructure
+
+```bash
+  terraform plan
+```
+
+Finally we run terraform apply to make this changes in our infrastructure
+
+```bash
+  terraform apply
+```
+
+Login to your aws account and search for the ec2 service, you would see the instance we created!!
+
+Great right ?
+
+## Another Example
+
+Lets still play around with terraform, by doing an even simpler example, creating an s3 bucket
+
+below where we created our instance, write this
+
+```bash
+  provider "aws_s3_bucket" "my_s3_bucket" {
+    bucket = "my-tf-s3-bucket"
+  }
+```
+
+Note: you might need to choose a unique name for your bucket, as names on s3 are unique
+
+This time just run terraform apply, this would go also run the terraform plan for you, all you have to do type 'yes', when you are okay with the infrastructure
+
+```
+  terraform apply
+```
+
+## Data Sources
 
 Terraform has a concept of a _data_ resource; declaring this won't create any
 infrastructure, but will allow information to be read and referenced elsewhere
@@ -199,7 +327,7 @@ your code more readable and easier to update:
 
 ```
 locals {
-  team = "Stelligent"
+  team = "compudemy"
 }
 ```
 
@@ -221,12 +349,6 @@ locals {
 ##### Outputs
 
 When using _modules_, you can output values. We'll cover this in the modules labs.
-
-### Retrospective 17.1
-
-#### Question: Default Minimum Module Files
-
-_What are the recommended files for a minimum Terraform module?_
 
 ## Lesson 17.2: Getting Started and Terraform State
 
@@ -466,8 +588,7 @@ environments? Why or why not?_
 Infrastructure tends to grow over time, and we could follow better practice than
 throwing all of our code in `main.tf`. Let's split our declared variables out.
 
-- Copy any existing variables into a file called `variables.tf`. Run `terraform
-  plan` to ensure nothing is set to change.
+- Copy any existing variables into a file called `variables.tf`. Run `terraform plan` to ensure nothing is set to change.
 
 - Let's ensure that our VPCs don't have overlapping CIDRs. Create a
   `<workspace-name>.tfvars` file, and define unique CIDRs in each of them. Note
