@@ -141,7 +141,9 @@ When accessing AWS using the CLI, you will need to create one or more IAM users 
 
 - Creating tags is optional in the Add tags page, and you can just skip this and click on the Next: Review button.
 - In the Review page, you are presented with a summary of the new account being created. Click Create user.
-![image](https://user-images.githubusercontent.com/103466963/163221665-ab698af0-da70-46cc-8e39-620de0b8262c.png)
+- 
+![Screenshot (34)](https://user-images.githubusercontent.com/103466963/163436310-5161f1b7-4390-484a-a5d2-cb01f0cca294.png)
+
 - Finally, once the user is created, you must copy the Access key ID and the Secret access key values and save them for later user. Note that this is the only time that you can see these values
 
 ![image](https://adamtheautomator.com/wp-content/uploads/2020/07/Untitled-5.png)
