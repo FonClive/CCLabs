@@ -107,16 +107,14 @@ Using "aws s3", create a bucket:
 - Select S3 service
 - From the Amazon S3 console dashboard, choose Create Bucket.
 
-![Screenshot (27)](https://user-images.githubusercontent.com/103466963/163430667-3e3cf2fb-03e7-4ff2-ab31-3f2802a6dcca.png)
+![Screenshot (39)1](https://user-images.githubusercontent.com/103466963/163441737-8e99dc10-ba41-443c-bc2c-2f74c0b6a9b6.png)
 
 
 - In Create a Bucket, type a bucket name in Bucket Name.
 The bucket name you choose must be globally unique across all existing bucket names in Amazon S3 (that is, across all AWS customers). For more information, see Bucket Restrictions and Limitations.
-- Choose Create, When Amazon S3 successfully creates your bucket, the console displays your empty bucket in the Buckets pane.
+- Choose Create, When Amazon S3 successfully creates your bucket click on the bucket you created to see the contents of the bucket. At this point the bucket has (0)objects because nothing has been uploaded in the bucket.
 
-
-
-
+![Screenshot (40)](https://user-images.githubusercontent.com/103466963/163442034-7341bb8b-2c6d-416b-be78-4d9cb1f1a550.png)
 
 
 - List the contents of the bucket. To List the contents of your bucket, open the command line and type in the command below, replace compudemy-_your-AWS-username_ with the name you gave your bucket when creating your bucket. 
