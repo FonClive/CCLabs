@@ -128,11 +128,13 @@ The bucket name you choose must be globally unique across all existing bucket na
 - Creating an IAM User with S3 Access Permission
 When accessing AWS using the CLI, you will need to create one or more IAM users with enough access to the resources you intend to work with. In this section, you will create an IAM user with access to Amazon S3.
 - To create an IAM user with access to Amazon S3, you first need to login to your AWS IAM console. Under the Access management group, click on Users. Next, click on Add user, see link attached.
-![image](https://adamtheautomator.com/wp-content/uploads/2020/07/Untitled.png)
+
+![image](https://user-images.githubusercontent.com/103466963/163432017-3d0babf0-549c-446d-9be8-34373d272b13.png)
 
 - Type in the IAM user’s name you are creating inside the User name* box such as s3Admin. In the Access type* selection, put a check on Programmatic access. Then, click the Next: Permissions button
  
-![image](https://adamtheautomator.com/wp-content/uploads/2020/07/Untitled-1.png)
+![image](https://user-images.githubusercontent.com/103466963/163433262-69166c1c-efb6-4582-bad4-1e539d28257c.png)
+
 - Next, click on Attach existing policies directly. Then, search for the AmazonS3FullAccess policy name and put a check on it. When done, click on Next: Tags.
 
 ![image](https://adamtheautomator.com/wp-content/uploads/2020/07/Untitled-2.png)
