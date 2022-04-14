@@ -118,7 +118,7 @@ The bucket name you choose must be globally unique across all existing bucket na
 
 
 
-- List the contents of the bucket. To List the contents of your bucket, open the command line and type in the command below, replace my bucket with the name you used when creating your bucket 
+- List the contents of the bucket. To List the contents of your bucket, open the command line and type in the command below, replace compudemy-_your-AWS-username_ with the name you gave your bucket when creating your bucket. 
 
 **aws s3 ls s3://compudemy-_your-AWS-username_**
 
@@ -207,6 +207,12 @@ bucket again **without including the private file**.
 
 Clean up: remove your bucket. What do you have to do before you can
 remove it?
+- Make sure the bucket is empty – You can only delete buckets that don't have any objects in them. Make sure the bucket is empty.
+
+- s3:DeleteBucket permissions – If you cannot delete a bucket, work with your IAM administrator to confirm that you have s3:DeleteBucket permissions in your IAM user policy.
+
+- s3:DeleteBucket deny statement – If you have s3:DeleteBucket permissions in your IAM policy and you cannot delete a bucket, the bucket policy might include a deny statement for s3:DeleteBucket.
+-  Buckets created by ElasticBeanstalk have a policy containing this statement by default. Before you can delete the bucket, you must delete this statement or the bucket policy.
 
 ### Retrospective 2.1
 
