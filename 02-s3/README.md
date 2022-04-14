@@ -152,8 +152,12 @@ Now that you’ve created the IAM user with the appropriate access to Amazon S3,
 
 This section assumes that you already installed the AWS CLI version 2 tool as required. For the profile creation, you will need the following information:
 - To create the profile, open PowerShell, and type the command below and follow the prompts.
+
 **aws configure**
 Enter the Access key ID, Secret access key, Default region name, and default output name.
+
+![Screenshot (36)](https://user-images.githubusercontent.com/103466963/163439033-53347208-463d-4fc2-96ff-882ef76169f6.png)
+
 **Add an object to your bucket:**
 - Create a local subdirectory called, "data", for s3 files and put a few
   files in it.
