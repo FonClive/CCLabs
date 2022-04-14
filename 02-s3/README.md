@@ -118,7 +118,7 @@ The bucket name you choose must be globally unique across all existing bucket na
 
 in order to see all the buckets you have created, type in the command aws s3 ls, this command will list all the buckets in your account. Based on the image below we have just one bucket in this account 
 
-![image](https://user-images.githubusercontent.com/103466963/163443628-e792daf1-e025-4d8f-908a-071d6fc32a56.png)
+![Screenshot (41)](https://user-images.githubusercontent.com/103466963/163445806-0e8d9e05-0e9b-43fc-8f13-665152338c4c.png)
 
 - List the contents of the bucket. To List the contents of a specific bucket, open the command line and type in the command below, replace compudemy-your-AWS-username with the name you entered when creating your bucket. 
 
