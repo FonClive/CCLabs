@@ -107,48 +107,58 @@ Using "aws s3", create a bucket:
 - Select S3 service
 - From the Amazon S3 console dashboard, choose Create Bucket.
 
-![image](https://cloudkatha.com/ezoimgfmt/i0.wp.com/cloudkatha.com/wp-content/uploads/2021/02/How-to-Create-an-S3-Bucket-3.jpg?w=1084&ssl=1&ezimgfmt=ng:webp/ngcb1)
+![Screenshot (39)1](https://user-images.githubusercontent.com/103466963/163441737-8e99dc10-ba41-443c-bc2c-2f74c0b6a9b6.png)
+
 
 - In Create a Bucket, type a bucket name in Bucket Name.
 The bucket name you choose must be globally unique across all existing bucket names in Amazon S3 (that is, across all AWS customers). For more information, see Bucket Restrictions and Limitations.
-- Choose Create, When Amazon S3 successfully creates your bucket, the console displays your empty bucket in the Buckets pane.
+- Choose Create, When Amazon S3 successfully creates your bucket click on the bucket you created to see the contents of the bucket. At this point the bucket has (0)objects because nothing has been uploaded in the bucket.
 
+![Screenshot (40)](https://user-images.githubusercontent.com/103466963/163442034-7341bb8b-2c6d-416b-be78-4d9cb1f1a550.png)
 
+in order to see all the buckets you have created, type in the command aws s3 ls, this command will list all the buckets in your account. Based on the image below we have just one bucket in this account 
 
+![Screenshot (41)](https://user-images.githubusercontent.com/103466963/163445806-0e8d9e05-0e9b-43fc-8f13-665152338c4c.png)
 
+- List the contents of the bucket. To List the contents of a specific bucket, open the command line and type in the command below, replace compudemy-your-AWS-username with the name you entered when creating your bucket. 
 
-
-- List the contents of the bucket. To List the contents of your bucket, open the command line and type in the command below, replace my bucket with the name you used when creating your bucket 
-
-**aws s3 ls s3://compudemy-_your-AWS-username_**
+**aws s3 ls s3://compudemy-your-AWS-username**
 
 #### Lab 2.1.2: Upload Objects to a Bucket
 **Preparing Your AWS S3 Access**
 - Creating an IAM User with S3 Access Permission
 When accessing AWS using the CLI, you will need to create one or more IAM users with enough access to the resources you intend to work with. In this section, you will create an IAM user with access to Amazon S3.
 - To create an IAM user with access to Amazon S3, you first need to login to your AWS IAM console. Under the Access management group, click on Users. Next, click on Add user, see link attached.
-![image](https://adamtheautomator.com/wp-content/uploads/2020/07/Untitled.png)
+
+![image](https://user-images.githubusercontent.com/103466963/163432017-3d0babf0-549c-446d-9be8-34373d272b13.png)
 
 - Type in the IAM user’s name you are creating inside the User name* box such as s3Admin. In the Access type* selection, put a check on Programmatic access. Then, click the Next: Permissions button
  
-![image](https://adamtheautomator.com/wp-content/uploads/2020/07/Untitled-1.png)
+![image](https://user-images.githubusercontent.com/103466963/163433262-69166c1c-efb6-4582-bad4-1e539d28257c.png)
+
 - Next, click on Attach existing policies directly. Then, search for the AmazonS3FullAccess policy name and put a check on it. When done, click on Next: Tags.
 
-![image](https://adamtheautomator.com/wp-content/uploads/2020/07/Untitled-2.png)
+![Screenshot (33)](https://user-images.githubusercontent.com/103466963/163435663-179bc974-d6b9-40ab-b97d-478257e0780c.png)
 
 - Creating tags is optional in the Add tags page, and you can just skip this and click on the Next: Review button.
 - In the Review page, you are presented with a summary of the new account being created. Click Create user.
-![image](https://user-images.githubusercontent.com/103466963/163221665-ab698af0-da70-46cc-8e39-620de0b8262c.png)
-- Finally, once the user is created, you must copy the Access key ID and the Secret access key values and save them for later user. Note that this is the only time that you can see these values
+- 
+![Screenshot (34)](https://user-images.githubusercontent.com/103466963/163436310-5161f1b7-4390-484a-a5d2-cb01f0cca294.png)
 
-![image](https://adamtheautomator.com/wp-content/uploads/2020/07/Untitled-5.png)
+- Finally, once the user is created, you must download csv or copy the Access key ID and the Secret access key values and save them for later user. Note that this is the only time that you can see these values
+
+![Screenshot (35)](https://user-images.githubusercontent.com/103466963/163437064-5580d776-d765-477d-9a21-3b4a03e229d4.png)
  **Setting Up an AWS Profile On Your Computer**
 Now that you’ve created the IAM user with the appropriate access to Amazon S3, the next step is to set up the AWS CLI profile on your computer.
 
 This section assumes that you already installed the AWS CLI version 2 tool as required. For the profile creation, you will need the following information:
 - To create the profile, open PowerShell, and type the command below and follow the prompts.
+
 **aws configure**
 Enter the Access key ID, Secret access key, Default region name, and default output name.
+
+![Screenshot (36)](https://user-images.githubusercontent.com/103466963/163439033-53347208-463d-4fc2-96ff-882ef76169f6.png)
+
 **Add an object to your bucket:**
 - Create a local subdirectory called, "data", for s3 files and put a few
   files in it.
@@ -166,8 +176,6 @@ For example, to upload the file c:\data.pdf to the compudemy-_your-AWS-username_
 ![image](https://adamtheautomator.com/wp-content/uploads/2020/07/upload-single-file.gif)
 
 Note: S3 bucket names are always prefixed with S3:// when used with AWS CLI
-
-Run the above command in PowerShell, but change the source and destination that fits your environment first. The output should look similar to the demonstration below.
 - List the contents of the bucket after each upload.
 Use the command below to list the objects at the root of the S3 bucket.
 **aws s3 ls s3://compudemy-_your-AWS-username_/**
@@ -192,6 +200,9 @@ For further reading, see the S3 [Access Policy Language Overview](https://docs.a
 
 _What makes "sync" a better choice than "cp" for some S3 uploads?_
 
+aws s3 cp will copy all files, even if they already exist in the destination area. It also will not delete files from your destination if they are deleted from the source. aws s3 sync looks at the destination before copying files over and only copies over files that are new and updated.
+The sync command is better because it is designed to handle keeping two folders in sync while copying the minimum amount of data. Sync should result in less data being pushed into S3 bucket so that should have a less cost overall.
+
 #### Lab 2.1.3: Exclude Private Objects When Uploading to a Bucket
 
 Add a private file to your data directory. Then, upload the directory to your
@@ -206,6 +217,12 @@ bucket again **without including the private file**.
 
 Clean up: remove your bucket. What do you have to do before you can
 remove it?
+- Make sure the bucket is empty – You can only delete buckets that don't have any objects in them. Make sure the bucket is empty.
+
+- s3:DeleteBucket permissions – If you cannot delete a bucket, work with your IAM administrator to confirm that you have s3:DeleteBucket permissions in your IAM user policy.
+
+- s3:DeleteBucket deny statement – If you have s3:DeleteBucket permissions in your IAM policy and you cannot delete a bucket, the bucket policy might include a deny statement for s3:DeleteBucket.
+-  Buckets created by ElasticBeanstalk have a policy containing this statement by default. Before you can delete the bucket, you must delete this statement or the bucket policy.
 
 ### Retrospective 2.1
 
