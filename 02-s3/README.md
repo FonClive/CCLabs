@@ -144,9 +144,9 @@ When accessing AWS using the CLI, you will need to create one or more IAM users 
 - 
 ![Screenshot (34)](https://user-images.githubusercontent.com/103466963/163436310-5161f1b7-4390-484a-a5d2-cb01f0cca294.png)
 
-- Finally, once the user is created, you must copy the Access key ID and the Secret access key values and save them for later user. Note that this is the only time that you can see these values
+- Finally, once the user is created, you must download csv or copy the Access key ID and the Secret access key values and save them for later user. Note that this is the only time that you can see these values
 
-![image](https://adamtheautomator.com/wp-content/uploads/2020/07/Untitled-5.png)
+![Screenshot (35)](https://user-images.githubusercontent.com/103466963/163437064-5580d776-d765-477d-9a21-3b4a03e229d4.png)
  **Setting Up an AWS Profile On Your Computer**
 Now that you’ve created the IAM user with the appropriate access to Amazon S3, the next step is to set up the AWS CLI profile on your computer.
 
