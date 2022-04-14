@@ -137,7 +137,7 @@ When accessing AWS using the CLI, you will need to create one or more IAM users 
 
 - Next, click on Attach existing policies directly. Then, search for the AmazonS3FullAccess policy name and put a check on it. When done, click on Next: Tags.
 
-![image](https://adamtheautomator.com/wp-content/uploads/2020/07/Untitled-2.png)
+![Screenshot (33)](https://user-images.githubusercontent.com/103466963/163435663-179bc974-d6b9-40ab-b97d-478257e0780c.png)
 
 - Creating tags is optional in the Add tags page, and you can just skip this and click on the Next: Review button.
 - In the Review page, you are presented with a summary of the new account being created. Click Create user.
