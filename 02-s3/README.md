@@ -116,10 +116,13 @@ The bucket name you choose must be globally unique across all existing bucket na
 
 ![Screenshot (40)](https://user-images.githubusercontent.com/103466963/163442034-7341bb8b-2c6d-416b-be78-4d9cb1f1a550.png)
 
+in order to see all the buckets you have created, type in the command aws s3 ls, this command will list all the buckets in your account. Based on the image below we have just one bucket in this account 
 
-- List the contents of the bucket. To List the contents of your bucket, open the command line and type in the command below, replace compudemy-_your-AWS-username_ with the name you gave your bucket when creating your bucket. 
+![image](https://user-images.githubusercontent.com/103466963/163443628-e792daf1-e025-4d8f-908a-071d6fc32a56.png)
 
-**aws s3 ls s3://compudemy-_your-AWS-username_**
+- List the contents of the bucket. To List the contents of a specific bucket, open the command line and type in the command below, replace compudemy-your-AWS-username with the name you entered when creating your bucket. 
+
+**aws s3 ls s3://compudemy-your-AWS-username**
 
 #### Lab 2.1.2: Upload Objects to a Bucket
 **Preparing Your AWS S3 Access**
