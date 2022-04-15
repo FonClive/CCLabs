@@ -171,9 +171,9 @@ To upload a file to S3, you’ll need to provide two arguments (source and desti
 
 For example, to upload individual files to the bucket you created, you can use the command below.
 
-**aws s3 cp File name  s3://compudemy-your-aws-username** It gives you an ouput similar to the one below
+**-	aws s3 cp --recursive "C:\Users\Lenovo\Desktop\data" s3://compudemy-your-aws-username/** It gives you an ouput similar to the one below
 
-![image](https://user-images.githubusercontent.com/103466963/163596267-a58d04bf-f69f-4e24-a368-318ec7e43b28.png)
+![image](https://user-images.githubusercontent.com/103466963/163604612-d437cb68-29e5-4869-8da7-28d39b7090d7.png)
 
 You can open your s3 console and check to see the files you just uploaded. in this case two files were uploaded as see below
 
@@ -185,7 +185,7 @@ Use the command below to list the objects at the root of the S3 bucket.
 **aws s3 ls s3://compudemy-your-AWS-username**
 This command will list the contents of your S3 bucket as seen below
 
-![image](https://user-images.githubusercontent.com/103466963/163598601-5f7914f1-c063-41c3-94a0-dcaf945cca03.png)
+![image](https://user-images.githubusercontent.com/103466963/163605044-aaf61e67-25d5-4e7d-be29-4bf63acc7e5f.png)
 
 
 ##### Question: Copying to Top Level
