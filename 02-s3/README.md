@@ -114,11 +114,11 @@ Using "aws s3", create a bucket:
 The bucket name you choose must be globally unique across all existing bucket names in Amazon S3 (that is, across all AWS customers). For more information, see Bucket Restrictions and Limitations.
 - Choose Create, When Amazon S3 successfully creates your bucket click on the bucket you created to see the contents of the bucket. At this point the bucket has (0)objects because nothing has been uploaded in the bucket.
 
-![Screenshot (40)](https://user-images.githubusercontent.com/103466963/163442034-7341bb8b-2c6d-416b-be78-4d9cb1f1a550.png)
+![image](https://user-images.githubusercontent.com/103466963/163442034-7341bb8b-2c6d-416b-be78-4d9cb1f1a550.png)
 
 in order to see all the buckets you have created, type in the command aws s3 ls, this command will list all the buckets in your account. Based on the image below we have just one bucket in this account 
 
-![Screenshot (41)](https://user-images.githubusercontent.com/103466963/163445806-0e8d9e05-0e9b-43fc-8f13-665152338c4c.png)
+![image](https://user-images.githubusercontent.com/103466963/163445806-0e8d9e05-0e9b-43fc-8f13-665152338c4c.png)
 
 - List the contents of the bucket. To List the contents of a specific bucket, open the command line and type in the command below, replace compudemy-your-AWS-username with the name you entered when creating your bucket. 
 
@@ -138,16 +138,16 @@ When accessing AWS using the CLI, you will need to create one or more IAM users 
 
 - Next, click on Attach existing policies directly. Then, search for the AmazonS3FullAccess policy name and put a check on it. When done, click on Next: Tags.
 
-![Screenshot (33)](https://user-images.githubusercontent.com/103466963/163435663-179bc974-d6b9-40ab-b97d-478257e0780c.png)
+![image](https://user-images.githubusercontent.com/103466963/163435663-179bc974-d6b9-40ab-b97d-478257e0780c.png)
 
 - Creating tags is optional in the Add tags page, and you can just skip this and click on the Next: Review button.
 - In the Review page, you are presented with a summary of the new account being created. Click Create user.
 - 
-![Screenshot (34)](https://user-images.githubusercontent.com/103466963/163436310-5161f1b7-4390-484a-a5d2-cb01f0cca294.png)
+![image](https://user-images.githubusercontent.com/103466963/163436310-5161f1b7-4390-484a-a5d2-cb01f0cca294.png)
 
 - Finally, once the user is created, you must download csv or copy the Access key ID and the Secret access key values and save them for later user. Note that this is the only time that you can see these values
 
-![Screenshot (35)](https://user-images.githubusercontent.com/103466963/163437064-5580d776-d765-477d-9a21-3b4a03e229d4.png)
+![image](https://user-images.githubusercontent.com/103466963/163437064-5580d776-d765-477d-9a21-3b4a03e229d4.png)
  **Setting Up an AWS Profile On Your Computer**
 Now that you’ve created the IAM user with the appropriate access to Amazon S3, the next step is to set up the AWS CLI profile on your computer.
 
@@ -157,7 +157,7 @@ This section assumes that you already installed the AWS CLI version 2 tool as re
 **aws configure**
 Enter the Access key ID, Secret access key, Default region name, and default output name.
 
-![Screenshot (36)](https://user-images.githubusercontent.com/103466963/163439033-53347208-463d-4fc2-96ff-882ef76169f6.png)
+![image](https://user-images.githubusercontent.com/103466963/163439033-53347208-463d-4fc2-96ff-882ef76169f6.png)
 
 **Add an object to your bucket:**
 - Create a local subdirectory called, "data", for s3 files and put a few
@@ -169,11 +169,15 @@ Enter the Access key ID, Secret access key, Default region name, and default out
 When you upload files to S3, you can upload one file at a time, or by uploading multiple files and folders recursively. Depending on your requirements, you may choose one over the other that you deem appropriate.
 To upload a file to S3, you’ll need to provide two arguments (source and destination) to the aws s3 cp command.
 
-For example, to upload the file c:\data.pdf to the compudemy-_your-AWS-username_ bucket, you can use the command below.
+For example, to upload individual files to the bucket you created, you can use the command below.
 
 **aws s3 cp File name  s3://compudemy-your-aws-username** It gives you an ouput similar to the one below
 
 ![image](https://user-images.githubusercontent.com/103466963/163596267-a58d04bf-f69f-4e24-a368-318ec7e43b28.png)
+
+You can open your s3 console and check to see the files you just uploaded. in this case two files were uploaded as see below
+
+![Screenshot (43)](https://user-images.githubusercontent.com/103466963/163598120-4a2915a7-19ad-443c-9ed0-ad99858542fa.png)
 
 Note: S3 bucket names are always prefixed with S3:// when used with AWS CLI
 - List the contents of the bucket after each upload.
