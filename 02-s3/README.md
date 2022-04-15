@@ -257,8 +257,18 @@ individuals or the public.*
 
 Create your bucket again and upload the contents of your "data"
 directory with the "aws s3 sync" command.
+To create the bucket, do thesame as you did previously using the same  bucket name, the only difference now is you uncheck the box that says block public access in order for the bucket to be visible to others.
+
+![image](https://user-images.githubusercontent.com/103466963/163628886-b08ef0cd-59c3-47b9-921f-cd52d8f87745.png)
 
 - Include the "private.txt" file this time.
+  Use the following command to copy the files from the local directory to the S3 bucket with the private.txt file included. Previously we did upload the files and excluded the private.txt file. However here we are going to include the private.txt file when copying the local directory to the buck. Use the following sync command to execute that task
+  **aws s3 sync C:\Users\Lenovo\Desktop\Data1 s3://compudemy-your-aws-username** , you can see the oupt below, it uploads all the files with the private.txt file inclusive
+  
+ ![image](https://user-images.githubusercontent.com/103466963/163631515-e0175f66-d1e2-4cee-a724-8396bba6b2ce.png)
+You can go to the s3 console and you will see that the files have been uploaded to the bucket, it should look similar to the one below
+
+![image](https://user-images.githubusercontent.com/103466963/163631846-f397b74f-3555-4f28-b542-df3d24f06a29.png)
 
 - Use a "sync" command parameter to make all the files in the bucket
   publicly readable.
