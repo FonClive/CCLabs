@@ -177,13 +177,16 @@ For example, to upload individual files to the bucket you created, you can use t
 
 You can open your s3 console and check to see the files you just uploaded. in this case two files were uploaded as see below
 
-![Screenshot (43)](https://user-images.githubusercontent.com/103466963/163598120-4a2915a7-19ad-443c-9ed0-ad99858542fa.png)
+![image](https://user-images.githubusercontent.com/103466963/163598120-4a2915a7-19ad-443c-9ed0-ad99858542fa.png)
 
 Note: S3 bucket names are always prefixed with S3:// when used with AWS CLI
 - List the contents of the bucket after each upload.
 Use the command below to list the objects at the root of the S3 bucket.
 **aws s3 ls s3://compudemy-your-AWS-username**
-This command will list the contents of your S3 bucket
+This command will list the contents of your S3 bucket as seen below
+
+![image](https://user-images.githubusercontent.com/103466963/163598601-5f7914f1-c063-41c3-94a0-dcaf945cca03.png)
+
 
 ##### Question: Copying to Top Level
 
