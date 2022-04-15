@@ -222,6 +222,9 @@ aws s3 cp --recursive "C:\Users\Lenovo\Desktop\data" s3://compudemy-your-aws-use
 
 
 - Verify after uploading that the file doesn't exist in the bucket.
+  From the image below it can be observed that the file "private.txt does not exist in the bucket
+  
+  ![image](https://user-images.githubusercontent.com/103466963/163626127-5fa1e8c6-98e0-49ee-823a-db1d9fda66b6.png)
 
 - Did you find two different ways to accomplish this task? If not, make sure to
   read the [documentation on sync flags](https://docs.aws.amazon.com/cli/latest/reference/s3/sync.html).
