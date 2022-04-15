@@ -173,11 +173,12 @@ For example, to upload individual files to the bucket you created, you can use t
 
 **-	aws s3 cp --recursive "C:\Users\Lenovo\Desktop\data" s3://compudemy-your-aws-username/** It gives you an ouput similar to the one below
 
-![image](https://user-images.githubusercontent.com/103466963/163604612-d437cb68-29e5-4869-8da7-28d39b7090d7.png)
+![image](https://user-images.githubusercontent.com/103466963/163605478-a522c861-3875-4d2d-a9af-72b1249fd31d.png)
+
 
 You can open your s3 console and check to see the files you just uploaded. in this case two files were uploaded as see below
 
-![image](https://user-images.githubusercontent.com/103466963/163598120-4a2915a7-19ad-443c-9ed0-ad99858542fa.png)
+![image](https://user-images.githubusercontent.com/103466963/163604612-d437cb68-29e5-4869-8da7-28d39b7090d7.png)
 
 Note: S3 bucket names are always prefixed with S3:// when used with AWS CLI
 - List the contents of the bucket after each upload.
@@ -185,7 +186,7 @@ Use the command below to list the objects at the root of the S3 bucket.
 **aws s3 ls s3://compudemy-your-AWS-username**
 This command will list the contents of your S3 bucket as seen below
 
-![image](https://user-images.githubusercontent.com/103466963/163605044-aaf61e67-25d5-4e7d-be29-4bf63acc7e5f.png)
+![image](https://user-images.githubusercontent.com/103466963/163605731-67b879ff-1624-4d8f-90de-3a0acebc81bc.png)
 
 
 ##### Question: Copying to Top Level
