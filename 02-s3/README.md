@@ -214,7 +214,12 @@ The sync command is better because it is designed to handle keeping two folders 
 #### Lab 2.1.3: Exclude Private Objects When Uploading to a Bucket
 
 Add a private file to your data directory. Then, upload the directory to your
-bucket again **without including the private file**.
+bucket again **without including the private file**. There are three files in the data directory, all files will be copied except the "private.txt" using the following command
+
+aws s3 cp --recursive "C:\Users\Lenovo\Desktop\data" s3://compudemy-your-aws-username/ --exclude "private.txt*"
+
+![image](https://user-images.githubusercontent.com/103466963/163622325-627513f1-540b-464f-8824-1a1bbf0411f9.png)
+
 
 - Verify after uploading that the file doesn't exist in the bucket.
 
