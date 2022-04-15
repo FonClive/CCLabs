@@ -171,14 +171,14 @@ To upload a file to S3, you’ll need to provide two arguments (source and desti
 
 For example, to upload the file c:\data.pdf to the compudemy-_your-AWS-username_ bucket, you can use the command below.
 
-**aws s3 cp c:\data.pdf s3://compudemy-_your-AWS-username_/** It gives you an ouput similar to the one below
+**aws s3 cp File name  s3://compudemy-your-aws-username** It gives you an ouput similar to the one below
 
-![image](https://adamtheautomator.com/wp-content/uploads/2020/07/upload-single-file.gif)
+![image](https://user-images.githubusercontent.com/103466963/163596267-a58d04bf-f69f-4e24-a368-318ec7e43b28.png)
 
 Note: S3 bucket names are always prefixed with S3:// when used with AWS CLI
 - List the contents of the bucket after each upload.
 Use the command below to list the objects at the root of the S3 bucket.
-**aws s3 ls s3://compudemy-_your-AWS-username_/**
+**aws s3 ls s3://compudemy-your-AWS-username**
 This command will list the contents of your S3 bucket
 
 ##### Question: Copying to Top Level
