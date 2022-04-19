@@ -272,6 +272,8 @@ You can go to the s3 console and you will see that the files have been uploaded 
 
 - Use a "sync" command parameter to make all the files in the bucket
   publicly readable.
+  **aws s3 sync C:\Users\Lenovo\Desktop\Data1 s3://compudemy-your-aws-username/C:\Users\Lenovo\Desktop\Data1 --acl public-read**
+  To know if the files are publicly accessible, copy the URL of the object and paste on a new tap and if you get an access denied then your bucket and its contents cannot be publicly accessed. However if your bucket is open to the public then you should be able to see what is in the file
 
 ##### Question: Downloading Protection
 
