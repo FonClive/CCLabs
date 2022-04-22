@@ -263,16 +263,21 @@ To create the bucket, do thesame as you did previously using the same  bucket na
 
 - Include the "private.txt" file this time.
   Use the following command to copy the files from the local directory to the S3 bucket with the private.txt file included. Previously we did upload the files and excluded the private.txt file. However here we are going to include the private.txt file when copying the local directory to the buck. Use the following sync command to execute that task
-  **aws s3 sync C:\Users\Lenovo\Desktop\Data1 s3://compudemy-your-aws-username** , you can see the oupt below, it uploads all the files with the private.txt file inclusive
+  
+  **aws s3 sync C:\Users\Lenovo\Desktop\Data1 s3://compudemy-your-aws-username**
+  ,you can see the oupt below, it uploads all the files with the private.txt file inclusive
   
  ![image](https://user-images.githubusercontent.com/103466963/163631515-e0175f66-d1e2-4cee-a724-8396bba6b2ce.png)
+ 
 You can go to the s3 console and you will see that the files have been uploaded to the bucket, it should look similar to the one below
 
 ![image](https://user-images.githubusercontent.com/103466963/163631846-f397b74f-3555-4f28-b542-df3d24f06a29.png)
 
 - Use a "sync" command parameter to make all the files in the bucket
   publicly readable.
+  
   **aws s3 sync C:\Users\Lenovo\Desktop\Data1 s3://compudemy-your-aws-username/C:\Users\Lenovo\Desktop\Data1 --acl public-read**
+  
   To know if the files are publicly accessible, copy the URL of the object and paste on a new tap and if you get an access denied then your bucket and its contents cannot be publicly accessed. However if your bucket is open to the public then you should be able to see what is in the file
 
 ##### Question: Downloading Protection
@@ -306,6 +311,11 @@ to start fresh.
 Make all files publicly readable, grant yourself access to do anything
 to all files, and block access to "private.txt" unless you're an
 authenticated user:
+
+To create the bucket rub the following api command
+
+**s3api create-bucket --bucket compudemy-your-aws-username --region us-west-2 --create-bucket-configuration LocationConstraint=us-west-2**
+
 
 - Create and assign an IAM policy to explicitly grant yourself
   maintenance access.
