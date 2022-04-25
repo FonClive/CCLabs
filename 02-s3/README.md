@@ -303,10 +303,7 @@ permissions of the other files.
 
 - To ensure that your private file is only accessible to the bucket owner, click on the file you want to make private. Go to permission tab, click on edit ACL and uncheck the two boxes next to public access which has to do with Read/Write permissions
 
-![image](https://user-images.githubusercontent.com/103466963/165139407-685f16c8-f73b-4885-adb9-9f151d67eda6.png)
-
-
-##### Question: Modify Permissions
+![image](https://user-images.githubusercontent.com/103466963/165140200-8f90efdd-e3b9-4f62-9b71-f7f5bdb344b2.png)
 
 _How could you use "aws s3 cp" or "aws s3 sync" command to modify the
 permissions on the file?_
