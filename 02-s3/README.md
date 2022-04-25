@@ -284,6 +284,16 @@ You can go to the s3 console and you will see that the files have been uploaded 
 
 _After this, can you download one of your files from the bucket without using
 your API credentials?_
+Yes a file can be downloaded by going to the particular file , then click on download. in the case where you have thousands of files that you want to download, downloading individual files will be time consuming. Here you are trying to copy the files from your S3 bucket to your local directory/folder where you want to store the files. you can either use the command propmt to create a folder or create the folder manually where you want the files to be store. Once the folder is created, you need to change to that local directory. lets say the folder you created is called data where your files will be stored. To change to this directory enter the command
+
+**cd data**
+To download files in this current directory enter the command below
+
+**aws s3 sync s3://compudemy-your-aws-username .**
+Dont forget to include the dot at the end of the command because the dot indicates that the files are being downloaded into the current directory called data.
+Looking at the image that follows you will observe that three files have been successfully downloaded and stored into the local directory which was specified. To verify if the files are present, open the local directory and you should be able to see the files 
+
+![image](https://user-images.githubusercontent.com/103466963/165122361-cd57570f-9d01-42cf-bb5d-12ecd50da98f.png)
 
 #### Lab 2.2.2: Use the CLI to Restrict Access to Private Data
 
