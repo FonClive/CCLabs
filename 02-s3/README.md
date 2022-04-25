@@ -322,22 +322,7 @@ To create the bucket run the following api command
 
 - Set a bucket policy to grant public read access. To grant the bucket access to the public, click on the the bucket then go to permission and under policy attach this policy to the bucket and it will make that buckect and its contenet open to the public
 
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "PublicRead",
-            "Effect": "Allow",
-            "Principal": "*",
-            "Action": [
-                "s3:GetObject",
-                "s3:GetObjectVersion"
-            ],
-            "Resource": "arn:aws:s3:::compudemy-your-aws-username/*"
-        }
-    ]
-}
-
+![image](https://user-images.githubusercontent.com/103466963/165110793-dca55d65-9fb1-4f11-9e21-573268d49039.png)
 
 After attaching this policy you will discover that the bucket and its content becomes public. There is a particular file called private.txt which is not supposed to be open to the public. Just the bucket owner should have full ownership of the bucket. go ahead to Set an S3 ACL on "private.txt" to block read access unless you're
   authenticated.
