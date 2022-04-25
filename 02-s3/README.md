@@ -312,7 +312,7 @@ Make all files publicly readable, grant yourself access to do anything
 to all files, and block access to "private.txt" unless you're an
 authenticated user:
 
-To create the bucket rub the following api command
+To create the bucket run the following api command
 
 **s3api create-bucket --bucket compudemy-your-aws-username --region us-west-2 --create-bucket-configuration LocationConstraint=us-west-2**
 
@@ -320,9 +320,26 @@ To create the bucket rub the following api command
 - Create and assign an IAM policy to explicitly grant yourself
   maintenance access.
 
-- Set a bucket policy to grant public read access.
+- Set a bucket policy to grant public read access. To grant the bucket access to the public, click on the the bucket then go to permission and under policy attach this policy to the bucket and it will make that buckect and its contenet open to the public
 
-- Set an S3 ACL on "private.txt" to block read access unless you're
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "PublicRead",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": [
+                "s3:GetObject",
+                "s3:GetObjectVersion"
+            ],
+            "Resource": "arn:aws:s3:::compudemy-your-aws-username/*"
+        }
+    ]
+}
+
+
+After attaching this policy you will discover that the bucket and its content becomes public. There is a particular file called private.txt which is not supposed to be open to the public. Just the bucket owner should have full ownership of the bucket. go ahead to Set an S3 ACL on "private.txt" to block read access unless you're
   authenticated.
 
 When you're done, verify that anybody (e.g. you, unauthenticated) can
