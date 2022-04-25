@@ -293,7 +293,7 @@ To download files in this current directory enter the command below
 Dont forget to include the dot at the end of the command because the dot indicates that the files are being downloaded into the current directory called data.
 Looking at the image that follows you will observe that three files have been successfully downloaded and stored into the local directory which was specified. To verify if the files are present, open the local directory and you should be able to see the files 
 
-![image](https://user-images.githubusercontent.com/103466963/165122361-cd57570f-9d01-42cf-bb5d-12ecd50da98f.png)
+![image)](https://user-images.githubusercontent.com/103466963/165136448-deb11f47-6497-472a-ab66-4d0db282a0b3.png)
 
 #### Lab 2.2.2: Use the CLI to Restrict Access to Private Data
 
