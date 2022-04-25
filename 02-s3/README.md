@@ -324,7 +324,11 @@ To create the bucket run the following api command
 
 ![image](https://user-images.githubusercontent.com/103466963/165110793-dca55d65-9fb1-4f11-9e21-573268d49039.png)
 
-After attaching this policy you will discover that the bucket and its content becomes public. There is a particular file called private.txt which is not supposed to be open to the public. Just the bucket owner should have full ownership of the bucket. go ahead to Set an S3 ACL on "private.txt" to block read access unless you're
+After attaching this policy you will discover that the bucket and its content becomes public as seen below
+
+![image](https://user-images.githubusercontent.com/103466963/165111705-83828c72-4f46-462e-bbfd-a0f00cf01bef.png)
+
+There is a particular file called private.txt which is not supposed to be open to the public. Just the bucket owner should have full ownership of the bucket. Go ahead to Set an S3 ACL on "private.txt" to block read access unless you're
   authenticated.
 
 When you're done, verify that anybody (e.g. you, unauthenticated) can
