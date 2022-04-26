@@ -362,6 +362,18 @@ It's valuable to know about the s3api command, but you're much more
 likely to be managing S3 resources with CloudFormation. Repeat Lab 2.2.3,
 but this time do it all with CloudFormation instead of the awscli.
 
+- Go to Cloud Formation on the aws consolle
+- open the cloudformation service
+- click on create stack.When you use CloudFormation, you manage related resources as a single unit called a stack. You create, update, and delete a collection of resources by creating, updating, and deleting stacks. All the resources in a stack are defined by the stack's CloudFormation template.
+
+![Screenshot (69)](https://user-images.githubusercontent.com/103466963/165385075-0cd386e2-aa7f-41df-b808-9ab41c07517e.png).
+
+- The next step is to create a cloudformation template, for now we will focus on the task to be performed. All other parts in the cloudformation template not touched will be dealt with subsequently in other task. so to create a template, there are two options you can either choose template is ready or choose a sample template. in our case we will choose template is ready assuming that we created the template and stored in our local or in an s3 buckct. if the Template is stored on your local then you can just go ahead to upload it and if its stored in an s3 bucket then copy the buckets URL and paste in the required field then click on next.
+
+
+![Screenshot (68)](https://user-images.githubusercontent.com/103466963/165384525-cd23fc44-b43b-475e-9848-02c01dfcbe5f.png)
+
+
 Note that not everything can be done using the same mechanisms in a
 single template. To keep things simple, implement all of the permissions
 using a single bucket policy.
