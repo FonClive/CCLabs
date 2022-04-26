@@ -84,7 +84,7 @@
       brew install hashicorp/tap/terraform
   ```
 
-  Brew would take care of everything, for you adding it terraform to the path, e.t.c
+  Brew would take care of everything, adding terraform to the path, e.t.c
 
   You can confirm terraform is installed by typing
 
@@ -96,8 +96,12 @@
 
   Similar to mac Os, we can install terraform using the windows package manager [chocolatey](https://chocolatey.org)
 
+  ![run-as-admin](https://github.com/IsaiahDaniel/compudemy-images/blob/main/terraform/images/01-run-as-admin.png?raw=true)
+
   First we need to install chocolatey on our windows machine,
   Run your windows powershell as administrator [more info here](https://chocolatey.org/install)
+
+  ![choco-install](https://github.com/IsaiahDaniel/compudemy-images/blob/main/terraform/images/02-install-choco.png?raw=true)
 
   Paste the command Below on your powershell terminal
 
@@ -111,11 +115,19 @@
     choco --version
   ```
 
-  verify the Terraform by typing
+  ![choco-verify](https://github.com/IsaiahDaniel/compudemy-images/blob/main/terraform/images/2.2-choco-version.png?raw=true)
+
+  Next We install Terraform
+
+  ![terraform-install](https://github.com/IsaiahDaniel/compudemy-images/blob/main/terraform/images/03-install-terraform.png?raw=true)
+
+  Verify Terraform Installation by typing
 
   ```bash
     terraform --version
   ```
+
+  ![terraform-version](https://github.com/IsaiahDaniel/compudemy-images/blob/main/terraform/images/04-terraform-version.png?raw=true)
 
   Now you all setup and Good to Go!!!!
 
@@ -265,6 +277,61 @@ Login to your aws account and search for the ec2 service, you would see the inst
 
 Great right ?
 
+## Visual Example
+
+1. create A folder
+
+![lanch-instance](https://github.com/IsaiahDaniel/compudemy-images/blob/main/terraform/images/05_create-folder.png?raw=true)
+
+2. Open Visual Studio code
+
+![open-with-code](https://github.com/IsaiahDaniel/compudemy-images/blob/main/terraform/images/06_open_with_code.png?raw=true)
+
+3. Open AWS console
+
+![open-aws](https://github.com/IsaiahDaniel/compudemy-images/blob/main/terraform/images/07_open_aws.png?raw=true)
+
+4. Launch Iam and click users, then Create User
+
+![create-user](https://github.com/IsaiahDaniel/compudemy-images/blob/main/terraform/images/09_create_user.png?raw=true)
+
+5. Attach Policy to user
+
+![attach-policy](https://github.com/IsaiahDaniel/compudemy-images/blob/main/terraform/images/10_attach_policy.png?raw=true)
+
+6. Add Tags, (optional)
+
+![add-tags](https://github.com/IsaiahDaniel/compudemy-images/blob/main/terraform/images/11_add_tags.png?raw=true)
+
+7. View Data
+
+![view-user-launch](<https://github.com/IsaiahDaniel/compudemy-images/blob/main/terraform/images/12_view_attach%20(16).png?raw=true>)
+
+8. View/copy Credentials
+
+![view-credentials](https://github.com/IsaiahDaniel/compudemy-images/blob/main/terraform/images/13_credentials.png?raw=true)
+
+the above is an important step, this should be save because the secreat access key, would not be shown again.
+
+9. Launch EC2 console
+
+![lauch-console](https://github.com/IsaiahDaniel/compudemy-images/blob/main/terraform/images/14_ec2_console.png?raw=true)
+
+10. Get AMI
+
+![get-ami](https://github.com/IsaiahDaniel/compudemy-images/blob/main/terraform/images/17_get_ami.png?raw=true)
+
+Its important to note that the ami is different across regions
+this ami is for us-east-1, so you would have to select your ami, if you are in another region.
+
+11. Open VS code terminal
+
+![open-terminal](https://github.com/IsaiahDaniel/compudemy-images/blob/main/terraform/images/18_open_terminal.png?raw=true)
+
+12. Initialize Project with terraform
+
+![lanch-terrafom](https://github.com/IsaiahDaniel/compudemy-images/blob/main/terraform/images/20_lauch_instance_terraform.png?raw=true)
+
 ## Another Example
 
 Lets still play around with terraform, by doing an even simpler example, creating an s3 bucket
@@ -337,7 +404,7 @@ local from that:
 
 ```
 variable "team_name" {
-  default = "Stelligent"
+  default = "compudemy"
   type    = string
 }
 
