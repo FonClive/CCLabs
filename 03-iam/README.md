@@ -88,10 +88,12 @@ of users, groups and permissions, but not necessarily those precise
 - Create the Stack.
 
 - Use the [awscli](https://docs.aws.amazon.com/cli/latest/reference/iam/index.html)
-  to query the IAM service twice:
+  to query the IAM service  <!-- /twice -->:
 
   - List all the Roles
-  - Describe the specific Role your Stack created.
+  - <!-- / - Describe the specific Role your Stack created.  -->
+ 
+
   # Step one 
   - Declare the role policies of existing IAM resources
   ![image](https://user-images.githubusercontent.com/103466963/166444303-271da9f4-e752-4f37-8d62-3f9a31b3bb2f.png)
