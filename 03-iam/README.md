@@ -92,9 +92,20 @@ of users, groups and permissions, but not necessarily those precise
 
   - List all the Roles
   - Describe the specific Role your Stack created.
-  #Step one 
+  # Step one 
+  - Declare the role policies of existing IAM resources
   ![image](https://user-images.githubusercontent.com/103466963/166444303-271da9f4-e752-4f37-8d62-3f9a31b3bb2f.png)
-
+   # step two 
+   ![image](https://user-images.githubusercontent.com/103466963/166444756-a450dadc-38cb-42da-af32-8387101a557f.png)
+    Create a stack either by personally writing down codes in the template designer or uploading a ready template 
+    this [example](https://cloudkatha.com/how-to-create-iam-role-using-cloudformation/) can help you create a template om your local.
+    when the stack has been successfully created, Open either your local command line or cloudshell
+    # Step three
+    - After configuring you aws account, type in "aws list-roles" to query all existing roles
+    ![image](https://user-images.githubusercontent.com/103466963/166448899-c050936e-f09d-4d43-bf51-b44d7215a506.png)
+   
+   - The list of roles have been displayed on the 
+   
 
 #### Lab 3.1.2: Customer Managed Policy
 
