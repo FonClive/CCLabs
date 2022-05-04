@@ -379,6 +379,9 @@ but this time do it all with CloudFormation instead of the awscli.
 ![image](https://user-images.githubusercontent.com/103466963/165384525-cd23fc44-b43b-475e-9848-02c01dfcbe5f.png)
 
 
+
+There is a particular file called private.txt which is not supposed to be open to the public. Just the bucket owner should have full ownership of the bucket. Go ahead to Set an S3 ACL on "private.txt" to block read access unless you're authenticated.  when you are done uploading your files into your bucket, Copy the URL of each file  and paste on a new Browser, it is possible you get an access denied even though your bucket is public, in that case open the file , go to permissions then edit the ACL. Finally check the boxes beside the part that says "everyone(Public acess)" and click on save changes and that should be good. After setting the ACL, copy the URL of the file and paste on the new tap and it will show you the contents of the bucket. For the private file, leave the default ACL since only the bucket owner should have access to the private file
+
 Note that not everything can be done using the same mechanisms in a
 single template. To keep things simple, implement all of the permissions
 using a single bucket policy.
