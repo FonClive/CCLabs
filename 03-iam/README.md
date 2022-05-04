@@ -127,11 +127,17 @@ inline policy more generally usable:
  ### Visuals:
   ![image](https://user-images.githubusercontent.com/103466963/166634099-a7935d94-0685-4c09-8281-4d4d2749958e.png)
   we were able to convert the inline policy to the customer managed policy as seen above
+   .
+   
+   .
    ![Screenshot (457)](https://user-images.githubusercontent.com/103466963/166635323-4467abe2-e31f-45d8-9795-647bb68cd700.png)
    This originally the first role we created i.e the readonlyaccess role  
-   ![Screenshot (458)](https://user-images.githubusercontent.com/103466963/166635414-4fe96305-b7f0-4b57-9378-22ac02f6edb9.png)
-   Here we willl be importing or rather attatching a whole new role to the already existing role 
-   ![Screenshot (459)](https://user-images.githubusercontent.com/103466963/166635435-28096092-797d-4b72-873d-8d7df814cc54.png)
+  
+  
+  ![Screenshot (458)](https://user-images.githubusercontent.com/103466963/166635414-4fe96305-b7f0-4b57-9378-22ac02f6edb9.png)
+   Here we willl be importing or rather attatching a whole new role to the already existing role after selecting the role ,  we will click the import button to add the  new role 
+  
+  ![Screenshot (459)](https://user-images.githubusercontent.com/103466963/166635435-28096092-797d-4b72-873d-8d7df814cc54.png)
    The lab3-1-1role is fully updated as indicated above
 
   
@@ -160,7 +166,9 @@ policy:
     ![image](https://user-images.githubusercontent.com/103466963/166644697-98fcdf7b-6017-4d36-9cd5-86eb068d3684.png)
     the existing roles which have been created
     ![image](https://user-images.githubusercontent.com/103466963/166644724-f0e8fd9a-cad1-423b-97a6-8a1b59b611d8.png)
+    
     ![image](https://user-images.githubusercontent.com/103466963/166644756-41f89672-04d9-4cae-93c0-efa4d0735c82.png)
+    
     ![image](https://user-images.githubusercontent.com/103466963/166644784-95f8a811-94d7-4a15-a393-057b30fd1314.png)
 
 
