@@ -90,7 +90,7 @@ of users, groups and permissions, but not necessarily those precise
   to query the IAM service  <!-- /twice -->:
 
   - List all the Roles
-  - <!-- / - Describe the specific Role your Stack created.  -->
+  <!-- /  -- Describe the specific Role your Stack created.  -->
  
 
   ### Step one 
