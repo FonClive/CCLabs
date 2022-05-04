@@ -77,7 +77,6 @@ of users, groups and permissions, but not necessarily those precise
 
 #### Lab 3.1.1: IAM Role
 
-#### DEMO:
 # Create a CFN template that specifies an IAM Role.
 
 - Provide values only for required attributes.
@@ -94,17 +93,17 @@ of users, groups and permissions, but not necessarily those precise
   - <!-- / - Describe the specific Role your Stack created.  -->
  
 
-  # Step one 
+  ### Step one 
   - Declare the role policies of existing IAM resources
    ![Screenshot (463)](https://user-images.githubusercontent.com/103466963/166634484-771a7be2-9d75-4113-b2b1-10465d0571cc.png)
   -Here Lab 3-1-1 is our readonlyacess role and it will be given to all the IAM resourses(users)
   ![image](https://user-images.githubusercontent.com/103466963/166444303-271da9f4-e752-4f37-8d62-3f9a31b3bb2f.png)
-   # step two 
+   ### step two 
    ![image](https://user-images.githubusercontent.com/103466963/166444756-a450dadc-38cb-42da-af32-8387101a557f.png)
     Create a stack either by personally writing down codes in the template designer or uploading a ready template 
     this [example](https://cloudkatha.com/how-to-create-iam-role-using-cloudformation/) can help you create a template om your local.
     when the stack has been successfully created, Open either your local command line or cloudshell
-    # Step three
+    ### Step three
     - After configuring you aws account, type in "aws list-roles" to query all existing roles
     ![image](https://user-images.githubusercontent.com/103466963/166448899-c050936e-f09d-4d43-bf51-b44d7215a506.png)
    
@@ -125,7 +124,7 @@ inline policy more generally usable:
 - Update the Stack using the modified template.
 
  
- # Visuals:
+ ### Visuals:
   ![image](https://user-images.githubusercontent.com/103466963/166634099-a7935d94-0685-4c09-8281-4d4d2749958e.png)
   we were able to convert the inline policy to the customer managed policy as seen above
    ![Screenshot (457)](https://user-images.githubusercontent.com/103466963/166635323-4467abe2-e31f-45d8-9795-647bb68cd700.png)
@@ -156,6 +155,14 @@ policy:
   - Query the stack to determine its state.
   - If the stack update was not successful,
     [troubleshoot and determine why](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement).
+    
+    #### VISUALS:
+    ![image](https://user-images.githubusercontent.com/103466963/166644697-98fcdf7b-6017-4d36-9cd5-86eb068d3684.png)
+    the existing roles which have been created
+    ![image](https://user-images.githubusercontent.com/103466963/166644724-f0e8fd9a-cad1-423b-97a6-8a1b59b611d8.png)
+    ![image](https://user-images.githubusercontent.com/103466963/166644756-41f89672-04d9-4cae-93c0-efa4d0735c82.png)
+    ![image](https://user-images.githubusercontent.com/103466963/166644784-95f8a811-94d7-4a15-a393-057b30fd1314.png)
+
 
 #### Lab 3.1.4: AWS-Managed Policies
 
