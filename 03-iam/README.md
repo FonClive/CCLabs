@@ -96,6 +96,8 @@ of users, groups and permissions, but not necessarily those precise
 
   # Step one 
   - Declare the role policies of existing IAM resources
+![image](https://user-images.githubusercontent.com/103466963/166634099-a7935d94-0685-4c09-8281-4d4d2749958e.png)
+
   ![image](https://user-images.githubusercontent.com/103466963/166444303-271da9f4-e752-4f37-8d62-3f9a31b3bb2f.png)
    # step two 
    ![image](https://user-images.githubusercontent.com/103466963/166444756-a450dadc-38cb-42da-af32-8387101a557f.png)
@@ -122,6 +124,10 @@ inline policy more generally usable:
 
 - Update the Stack using the modified template.
 
+ 
+ # Visuals:
+  
+  
 #### Lab 3.1.3: Customer Managed Policy Re-Use
 
 Update the template further to demonstrate reuse of the customer managed
