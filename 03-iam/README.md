@@ -96,8 +96,8 @@ of users, groups and permissions, but not necessarily those precise
 
   # Step one 
   - Declare the role policies of existing IAM resources
-![image](https://user-images.githubusercontent.com/103466963/166634099-a7935d94-0685-4c09-8281-4d4d2749958e.png)
-
+   ![Screenshot (463)](https://user-images.githubusercontent.com/103466963/166634484-771a7be2-9d75-4113-b2b1-10465d0571cc.png)
+  -Here Lab 3-1-1 is our readonlyacess role and it will be given to all the IAM resourses(users)
   ![image](https://user-images.githubusercontent.com/103466963/166444303-271da9f4-e752-4f37-8d62-3f9a31b3bb2f.png)
    # step two 
    ![image](https://user-images.githubusercontent.com/103466963/166444756-a450dadc-38cb-42da-af32-8387101a557f.png)
@@ -126,7 +126,15 @@ inline policy more generally usable:
 
  
  # Visuals:
-  
+  ![image](https://user-images.githubusercontent.com/103466963/166634099-a7935d94-0685-4c09-8281-4d4d2749958e.png)
+  we were able to convert the inline policy to the customer managed policy as seen above
+   ![Screenshot (457)](https://user-images.githubusercontent.com/103466963/166635323-4467abe2-e31f-45d8-9795-647bb68cd700.png)
+   This originally the first role we created i.e the readonlyaccess role  
+   ![Screenshot (458)](https://user-images.githubusercontent.com/103466963/166635414-4fe96305-b7f0-4b57-9378-22ac02f6edb9.png)
+   Here we willl be importing or rather attatching a whole new role to the already existing role 
+   ![Screenshot (459)](https://user-images.githubusercontent.com/103466963/166635435-28096092-797d-4b72-873d-8d7df814cc54.png)
+   The lab3-1-1role is fully updated as indicated above
+
   
 #### Lab 3.1.3: Customer Managed Policy Re-Use
 
