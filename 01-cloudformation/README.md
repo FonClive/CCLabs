@@ -98,7 +98,22 @@ We will need the template ready in a file. So-
 
 ![Image](https://user-images.githubusercontent.com/103466963/167155769-97b9edc6-e674-4840-b91d-09eb9277b0b6.jpeg)
 
-Jump to step 2
+Jump to step 2: Create the CloudFormation stack
+
+ > Login to AWS management console -->
+ > Go to CloudFormation console -->
+ > Click Create Stack 
+
+You will see something like this.
+
+![image](https://user-images.githubusercontent.com/103466963/167159735-485d2438-ff71-48a4-8518-d2ccfbf46035.png)
+
+ > Click on upload a template file. 
+ > Upload your template and click next.
+
+You will be asked for a Stack name. 
+Provide a 
+
 
 
 - Always write your CloudFormation [templates in YAML](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-formats.html).
