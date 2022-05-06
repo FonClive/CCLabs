@@ -112,8 +112,14 @@ You will see something like this.
  > Upload your template and click next.
 
 You will be asked for a Stack name. 
-Provide a 
+Provide a stack name here. 
+Leave all the configuration as default and click next, next. After reviewing everything, click on Create Stack
 
+In a matter of seconds (maybe a minute) your stack will be created and you can verify your s3 bucket in the S3 console.
+
+It was as simple as that. We are done with creation of a simple s3 bucket 
+
+![image](https://user-images.githubusercontent.com/103466963/167167990-f1a91761-5f5e-4307-bcc1-d6f432bb6478.png)
 
 
 - Always write your CloudFormation [templates in YAML](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-formats.html).
@@ -140,7 +146,7 @@ Provide a
 Update the same template by adding a CloudFormation
 [Parameter](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html)
 to the stack and use the parameter's value as the name of the S3 bucket.
-
+  
 - Put your parameter into a separate JSON file and pass that file to the CLI.
 
 - Update your stack.
