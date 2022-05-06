@@ -56,9 +56,13 @@
 
 ## Lesson 1.1: Introduction to CloudFormation
 
+CloudFormation is an amazing tool/service provided by AWS which allows us to create and manage our entire infrastructure as a code.
+CloudFormation helps you replicate your application environment easily within a few clicks
+You simply declare your resources in a template and CloudFormation creates them in right order. Thats Awesome isn't it? 
+
 ### Principle 1.1
 
-AWS CloudFormation (CFN) is the preferred way we create AWS resources at Stelligent
+AWS CloudFormation (CFN) is the preferred way we create AWS resources at most enterprises
 
 ### Practice 1.1
 
@@ -77,6 +81,22 @@ and get familiar with the basic parts of a CloudFormation template.
 
 Create the *most minimal CFN template possible* that can be used to
 create an AWS Simple Storage Service (S3) Bucket.
+
+Now, it's time to create our first s3 bucket using CloudFormation. Please be assured that, we will create the stack with very simple bucket and will update our stack gradually to enable some frequently used features as mentioned above.
+
+Step 1: Prepare Template
+
+Let's create a simple template for creating an s3 bucket. To create an s3 bucket we need a resource of type 
+AWS::S3::Bucket
+
+And trust me this one single line is sufficient to create a bucket.
+
+We will need the template ready in a file. So-
+
+ > Open an editor like notepad or notepad++
+ > Copy the content of below code snippet into it. Save the file as firstbucket.yaml or anything of your choice ending with .yaml
+
+Jump to step 2
 
 - Always write your CloudFormation [templates in YAML](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-formats.html).
 
