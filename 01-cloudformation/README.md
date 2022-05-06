@@ -96,7 +96,10 @@ We will need the template ready in a file. So-
  > Open an editor like notepad or notepad++
  > Copy the content of below code snippet into it. Save the file as firstbucket.yaml or anything of your choice ending with .yaml
 
+![Image](https://user-images.githubusercontent.com/103466963/167155769-97b9edc6-e674-4840-b91d-09eb9277b0b6.jpeg)
+
 Jump to step 2
+
 
 - Always write your CloudFormation [templates in YAML](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-formats.html).
 
