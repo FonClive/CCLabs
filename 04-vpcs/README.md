@@ -65,9 +65,25 @@ that may be useful.
 #### Lab 4.1.1: New VPC with "Private" Subnet
 
 Launch a new VPC via your AWS account, specifying a region that will be
-used throughout these lessons.
+used throughout these lessons. Here most of the resources will be provisioned using Cloudformation.
 
 - Use a [CloudFormation YAML template](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-reference.html).
+In the AWS management console search for the CloudFormation service, open the service and click on create stack ( A stack is a collection of AWS resources that you can manage as a single unit. In other words, you can create, update, or delete a collection of resources by creating, updating, or deleting stacks. All the resources in a stack are defined by the stack's AWS CloudFormation template).
+
+![image](https://user-images.githubusercontent.com/103466963/168157049-e6d75e1c-4478-4c4c-94ae-1d3b12bca080.png)
+
+When you first launch your cloudformation template, it takes you to create stack and you just click on create stack directly. in the above image there is one stack already created. when you click on create stack it provides you with two options, to either create a stack with new resources or with existing resources. in this case we will go with new resources since we are going to define all the resources we need. Once you click on create stack it takes you to the next step as seen on the image below
+
+![image](https://user-images.githubusercontent.com/103466963/168160676-fb3b2556-6fe8-4512-a309-2f4853a08792.png)
+
+So we have 3 options, template is ready, use a sample template and create template in designer. so choose create template in designer since we are doing everything from scratch and click on create template in designer to go to the next step which is all about building the cloudformation template.  A template is a declaration of the AWS resources that make up a stack. The template is stored as a text file whose format complies with the JavaScript Object Notation (JSON) or YAML standard. These templates describe the resources that you want to provision in your AWS CloudFormation stack.
+
+![image](https://user-images.githubusercontent.com/103466963/168163037-867b242d-ec66-44ab-af14-ac722e25ed61.png)
+ 
+ 
+
+
+
 
 - Assign it a /16 CIDR block in [private IP space](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html#VPC_Sizing),
   and provide that block as a stack parameter in a [[separate parameters.json
