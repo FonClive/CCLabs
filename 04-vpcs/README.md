@@ -80,7 +80,7 @@ So we have 3 options, template is ready, use a sample template and create templa
 
 ![image](https://user-images.githubusercontent.com/103466963/168163037-867b242d-ec66-44ab-af14-ac722e25ed61.png)
  
- 
+ As seen on the image above, base on the resource you want to provision, select the resource under resource types, select the resource by clicking and holding the seleceted resource then drag and drop on the right. Do not forget to change the language of the template to either yaml or json. in this case we will be using the yaml format
 
 
 
