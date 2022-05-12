@@ -95,6 +95,14 @@ So we have 3 options, template is ready, use a sample template and create templa
 
 ![image](https://user-images.githubusercontent.com/103466963/168170669-674ae8c3-804c-49d4-82b1-6e6db95b337f.png)
 
+Once you have defined the properties of your vpc, go ahead to click on the up arrow marked in blue to create the stack. There are two ways you can do this its either you save the template in your local directory or in an s3 bucket, if stored in s3 then you will need the URL of that bucket. The two ways will be dealt with, whichever one you choose will still produce the same output.
+ - Click on the up arrow to create the stack, going this way you will notice that by default it provides you with the bucket URL, which means this template in stored in s3, you can open the s3 service to verify that. Click on next 
+ 
+ ![image](https://user-images.githubusercontent.com/103466963/168173917-12f0387e-44a3-4498-ad03-a1adf6b87762.png)
+
+ 
+ 
+
 
 - Create an EC2 subnet resource within your CIDR block that has a /24
   netmask.
