@@ -80,14 +80,16 @@ So we have 3 options, template is ready, use a sample template and create templa
 
 ![image](https://user-images.githubusercontent.com/103466963/168163037-867b242d-ec66-44ab-af14-ac722e25ed61.png)
  
- As seen on the image above, base on the resource you want to provision, select the resource under resource types, select the resource by clicking and holding the seleceted resource then drag and drop on the right. Do not forget to change the language of the template to either yaml or json. in this case we will be using the yaml format
-
-
-
+ As seen on the image above, base on the resource you want to provision, select the resource under resource types, select the resource by clicking and holding the seleceted resource then drag and drop on the right. Do not forget to change the language of the template to either yaml or json. in this case we will be using the yaml format.
+ Next, we will add resources to our template. make sure indentation is correct in the code. Note: Every time you make any changes to the template in the designer, it will ask for a refresh. Click on the refresh icon to refresh the designer.
 
 - Assign it a /16 CIDR block in [private IP space](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html#VPC_Sizing),
   and provide that block as a stack parameter in a [[separate parameters.json
   file]](https://aws.amazon.com/blogs/devops/passing-parameters-to-cloudformation-stacks-with-the-aws-cli-and-powershell).
+  
+  - Expand EC2 resource type and drag ‘VPC’ to designer and in the ‘Properties’ tab, edit the name of the resource to VPC by clicking on the small pen, give it a name. in this case we will simply rename to VPC as seen below
+
+![image](https://user-images.githubusercontent.com/103466963/168169560-432ff9ac-84f1-4343-a086-45a3578efda5.png)
 
 - Create an EC2 subnet resource within your CIDR block that has a /24
   netmask.
