@@ -91,6 +91,11 @@ So we have 3 options, template is ready, use a sample template and create templa
 
 ![image](https://user-images.githubusercontent.com/103466963/168169560-432ff9ac-84f1-4343-a086-45a3578efda5.png)
 
+- It is stated above that we should create a vpc and assign it a /16CIDRBlock
+
+![image](https://user-images.githubusercontent.com/103466963/168170669-674ae8c3-804c-49d4-82b1-6e6db95b337f.png)
+
+
 - Create an EC2 subnet resource within your CIDR block that has a /24
   netmask.
 
