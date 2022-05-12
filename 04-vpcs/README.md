@@ -74,7 +74,7 @@ In the AWS management console search for the CloudFormation service, open the se
 
 When you first launch your cloudformation template, it takes you to create stack and you just click on create stack directly. in the above image there is one stack already created. when you click on create stack it provides you with two options, to either create a stack with new resources or with existing resources. in this case we will go with new resources since we are going to define all the resources we need. Once you click on create stack it takes you to the next step as seen on the image below
 
-![image](https://user-images.githubusercontent.com/103466963/168160676-fb3b2556-6fe8-4512-a309-2f4853a08792.png)
+![image](https://user-images.githubusercontent.com/103466963/168163348-af0ae225-c67b-4dcc-b946-00d8ed0f97f5.png)
 
 So we have 3 options, template is ready, use a sample template and create template in designer. so choose create template in designer since we are doing everything from scratch and click on create template in designer to go to the next step which is all about building the cloudformation template.  A template is a declaration of the AWS resources that make up a stack. The template is stored as a text file whose format complies with the JavaScript Object Notation (JSON) or YAML standard. These templates describe the resources that you want to provision in your AWS CloudFormation stack.
 
