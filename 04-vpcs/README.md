@@ -101,11 +101,10 @@ Once you have defined the properties of your vpc, go ahead to click on the up ar
  ![image](https://user-images.githubusercontent.com/103466963/168173917-12f0387e-44a3-4498-ad03-a1adf6b87762.png)
 
  
- 
-
-
 - Create an EC2 subnet resource within your CIDR block that has a /24
   netmask.
+  
+  We are going 
 
 - Provide the VPC ID and subnet ID as stack outputs.
 
