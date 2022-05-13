@@ -139,10 +139,15 @@ Wait for a while and the refresh this tab to see the new status, it should tell 
 
 ![image](https://user-images.githubusercontent.com/103466963/168329477-28dd4291-a4fc-4126-93f0-42aec7a7a074.png)
 
--Now that our update is complete lets go into the console and check if all the resources defined in our tenplate have been created. call your vpc testvpc by editing the small section marked in blue to rename yoyr vpc
 
 ![image](https://user-images.githubusercontent.com/103466963/168332081-212734ca-d4a4-4c7f-890d-89d3fa0c4bd9.png)
 
+
+-Now that our update is complete lets go into the console and check if all the resources defined in our tenplate have been created. call your vpc testvpc by editing the small section marked in blue to rename your vpc
+
+![Screenshot (101)](https://user-images.githubusercontent.com/103466963/168333604-6ff7bb64-ea0b-4f74-bdea-3e72160afd10.png)
+
+from the above image we were able to succesfully add tags to our vpc by simply defining it in the template. ignore the other tags its for the project vpc, for our test vpc we have three tags assigned which are those underlined in blue. also go ahead to check the properties of the vpc to see if it matches what was declared in the template
 
 - Provide the VPC ID and subnet ID as stack outputs.
 
