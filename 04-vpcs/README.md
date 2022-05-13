@@ -96,15 +96,33 @@ So we have 3 options, template is ready, use a sample template and create templa
 ![image](https://user-images.githubusercontent.com/103466963/168170669-674ae8c3-804c-49d4-82b1-6e6db95b337f.png)
 
 Once you have defined the properties of your vpc, go ahead to click on the up arrow marked in blue to create the stack. There are two ways you can do this its either you save the template in your local directory or in an s3 bucket, if stored in s3 then you will need the URL of that bucket. The two ways will be dealt with, whichever one you choose will still produce the same output.
- - Click on the up arrow to create the stack, going this way you will notice that by default it provides you with the bucket URL, which means this template in stored in s3, you can open the s3 service to verify that. Click on next 
+ 
+![image](https://user-images.githubusercontent.com/103466963/168304112-aaba26a0-4c80-42a3-bb7c-9089a96281f9.png)
+
+ - Once you click on the up arrow, you should be able to notice that the template has been stored in s3 by default because it provides the buckets URL, you can open the s3 service to verify that. see image below
  
  ![image](https://user-images.githubusercontent.com/103466963/168173917-12f0387e-44a3-4498-ad03-a1adf6b87762.png)
+ 
+ - Click on next and it will take you to the next step which is to input the stack name, call the stack 'myvpc' 
 
+![image](https://user-images.githubusercontent.com/103466963/168306908-0b083b5c-9c98-4c3a-baa5-71d1e1bd1466.png)
+
+Click on next and it will take you to the step to Configure Stack Options, this step we will leave everything at the default settings which means no changes will be made here.
+
+![image](https://user-images.githubusercontent.com/103466963/168307401-de0ad94c-db6e-43f0-9f33-4cf98f585df0.png)
+
+-Go ahead and Click next and this will take you to the review page of your vpc. this is simply a summary of the stack we want to create. Once you review and everything is okay, click on create stack and once the stack starts creating, you can see the status showing create in progress, give it a few minutes then hit the refresh button to see the final status of the stack if stack creation was succeesful. if all the resources were provisioned correctly, indentations correct, code format is correct then the stack creation will be successful ,if not the stack creation will be unsuccessful and a roll back of all resources will be initiated except otherwise
+
+![image](https://user-images.githubusercontent.com/103466963/168310646-c592cc92-74d7-45a0-a535-d690688fea1e.png)
+
+Once the vpc creation is successfuly, click on stacks and you will be able to see the 'myvpc' stack 
+
+![image](https://user-images.githubusercontent.com/103466963/168312064-d7ed2df6-2103-4e64-9713-0d89162b35dc.png)
  
 - Create an EC2 subnet resource within your CIDR block that has a /24
   netmask.
   
-  We are going 
+  We are going to create a subnet that will be able to host our EC2 instance. Here we will not create the stack afresh all we need to keep doing is to keep updating the stack from now hence forth unless stated otherwise
 
 - Provide the VPC ID and subnet ID as stack outputs.
 
