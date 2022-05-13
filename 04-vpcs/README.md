@@ -174,10 +174,15 @@ on your "private" subnet.
   All we nee to do is keep updating the stack, here we will create an internet gateway then attach it to our vpc and subnet
   
   ![image](https://user-images.githubusercontent.com/103466963/168337404-e809c834-ed52-4df7-8aac-9f017d4b1ce7.png)
-  update your template by simply adding the internet gate way as shown in the image above and click on the arrow up to update the stack, follow same procedure like we did previosly and update the stack. Each time the stack update is complete open the console, go to the vpc service and check if the internet gateway has been successfully created
-
+  update your template by simply adding the internet gate way as shown in the image above and click on the arrow up to update the stack, follow same procedure like we did previosly and update the stack. Each time the stack update is complete open the console, go to the vpc service and check if the internet gateway has been successfully created.
+  When you go into the console, you will notice that internet gateway has been created but its detached so we nee to go ahead to attach it
 
 - Attach the gateway to your VPC.
+We will attach the internet gateway to the vpc by simply defining that in the cloudformation template 
+
+![image](https://user-images.githubusercontent.com/103466963/168347831-5cc1b388-26ce-4375-94c4-9fd854fe3084.png)
+
+simply update the template by adding the above section marked in blue to attach your internet gateway to your vpc 
 
 - Create a route table for the VPC, add the gateway to it, attach it
   to your subnet.
