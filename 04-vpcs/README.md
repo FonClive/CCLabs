@@ -139,6 +139,8 @@ Wait for a while and the refresh this tab to see the new status, it should tell 
 
 ![image](https://user-images.githubusercontent.com/103466963/168329477-28dd4291-a4fc-4126-93f0-42aec7a7a074.png)
 
+-Now that our update is complete lets go into the console and check if all the resources defined in our tenplate have been created
+
 - Provide the VPC ID and subnet ID as stack outputs.
 
 ****vpc-02350c66e3fabd6b4**
