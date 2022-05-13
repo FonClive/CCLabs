@@ -131,12 +131,19 @@ Once the vpc creation is successfuly, click on stacks and you will be able to se
  
  ![image](https://user-images.githubusercontent.com/103466963/168327145-5baffe72-cdd4-4418-8214-c59f43e0100b.png)
 
+Once all the resources have beeb provisioned correctly, click on the up arrow to update the stack, just click on next without changing anything till you finally reach the step where you have to update the stack. Go ahead to update the stack, the stack status shows that update is in progress
 
+![image](https://user-images.githubusercontent.com/103466963/168328792-755e4e8e-a14b-4a52-bbba-45b05f8cf6d1.png)
+
+Wait for a while and the refresh this tab to see the new status, it should tell us the update is complete as shown below
+
+![image](https://user-images.githubusercontent.com/103466963/168329477-28dd4291-a4fc-4126-93f0-42aec7a7a074.png)
 
 - Provide the VPC ID and subnet ID as stack outputs.
 
-vpc-02350c66e3fabd6b4
-subnet-088edde1e8c609300
+****vpc-02350c66e3fabd6b4**
+
+**subnet-088edde1e8c609300****
 
 - Tag all your new resources with:
 
