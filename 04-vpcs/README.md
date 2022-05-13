@@ -139,7 +139,10 @@ Wait for a while and the refresh this tab to see the new status, it should tell 
 
 ![image](https://user-images.githubusercontent.com/103466963/168329477-28dd4291-a4fc-4126-93f0-42aec7a7a074.png)
 
--Now that our update is complete lets go into the console and check if all the resources defined in our tenplate have been created
+-Now that our update is complete lets go into the console and check if all the resources defined in our tenplate have been created. call your vpc testvpc by editing the small section marked in blue to rename yoyr vpc
+
+![image](https://user-images.githubusercontent.com/103466963/168332081-212734ca-d4a4-4c7f-890d-89d3fa0c4bd9.png)
+
 
 - Provide the VPC ID and subnet ID as stack outputs.
 
