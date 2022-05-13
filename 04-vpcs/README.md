@@ -122,9 +122,21 @@ Once the vpc creation is successfuly, click on stacks and you will be able to se
 - Create an EC2 subnet resource within your CIDR block that has a /24
   netmask.
   
-  We are going to create a subnet that will be able to host our EC2 instance. Here we will not create the stack afresh all we need to keep doing is to keep updating the stack from now hence forth unless stated otherwise
+  We are going to create a subnet that will be able to host our EC2 instance. Here we will not create the stack afresh all we need to keep doing is to keep updating the stack from now hence forth unless stated otherwise. click on the circle close to my vpc, then click on update
+  
+![image](https://user-images.githubusercontent.com/103466963/168324298-12124ded-3574-403a-82a7-2af85e9280b2.png)
+ 
+ - click on next and select edit in designer. here we are simply trying to edit our current template, also go ahead and click on view in designer, from there you will be able to edit the template.
+ Your updated template should like the one below
+ 
+ ![image](https://user-images.githubusercontent.com/103466963/168327145-5baffe72-cdd4-4418-8214-c59f43e0100b.png)
+
+
 
 - Provide the VPC ID and subnet ID as stack outputs.
+
+vpc-02350c66e3fabd6b4
+subnet-088edde1e8c609300
 
 - Tag all your new resources with:
 
