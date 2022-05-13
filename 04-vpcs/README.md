@@ -69,6 +69,13 @@ used throughout these lessons. Here most of the resources will be provisioned us
 
 - Use a [CloudFormation YAML template](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-reference.html).
 In the AWS management console search for the CloudFormation service, open the service and click on create stack ( A stack is a collection of AWS resources that you can manage as a single unit. In other words, you can create, update, or delete a collection of resources by creating, updating, or deleting stacks. All the resources in a stack are defined by the stack's AWS CloudFormation template).
+- Tag all your new resources with:
+
+  - the key "user" and your AWS user name;
+  - "stelligent-u-lesson" and this lesson number;
+  - "stelligent-u-lab" and this lab number.
+
+- Don't use dedicated tenancy (it's needlessly expensive)
 
 ![image](https://user-images.githubusercontent.com/103466963/168157049-e6d75e1c-4478-4c4c-94ae-1d3b12bca080.png)
 
@@ -155,13 +162,6 @@ from the above image we were able to succesfully add tags to our vpc by simply d
 
 **subnet-088edde1e8c609300****
 
-- Tag all your new resources with:
-
-  - the key "user" and your AWS user name;
-  - "stelligent-u-lesson" and this lesson number;
-  - "stelligent-u-lab" and this lab number.
-
-- Don't use dedicated tenancy (it's needlessly expensive).
 
 #### Lab 4.1.2: Internet Gateway
 
