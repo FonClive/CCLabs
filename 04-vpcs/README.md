@@ -170,6 +170,12 @@ on your "private" subnet.
 
 - Add an Internet gateway
   [resource](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-internetgateway.html).
+  
+  All we nee to do is keep updating the stack, here we will create an internet gateway then attach it to our vpc and subnet
+  
+  ![image](https://user-images.githubusercontent.com/103466963/168337404-e809c834-ed52-4df7-8aac-9f017d4b1ce7.png)
+  update your template by simply adding the internet gate way as shown in the image above and click on the arrow up to update the stack, follow same procedure like we did previosly and update the stack. Each time the stack update is complete open the console, go to the vpc service and check if the internet gateway has been successfully created
+
 
 - Attach the gateway to your VPC.
 
