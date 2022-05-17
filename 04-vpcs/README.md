@@ -200,6 +200,16 @@ AWS CLI.
 
 - Be sure to create it in the same region you'll be doing your labs.
 
+**aws ec2 create-key-pair --key-name myec2testInstanceKeyPair --output text > myec2TestInstanceKeyPair.pem**
+
+Make sure the keypair is in the same region as your other resources created, if not we will need to import the keypair to the region where we want it to be stored.
+while trying to import the keypair created to another region we will be prompted to enter the public key. when we create the key pair, we only have access to the private key and not the public key. To see the private key, you can check your local directory maybe in downloads to see if it contains the private key because we will need the private key to be able to ssh into our instance.
+Since we will be needing the public key to be able to import thr key to another region, we will generate a public key from the private key we have by running the following command
+
+**ssh-keygen -y -f myec2keypair.pem > myec2keypair.pem.pub**
+
+
+
 #### Lab 4.1.4: Test Instance
 
 Launch an EC2 instance into your VPC.
