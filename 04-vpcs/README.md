@@ -207,7 +207,8 @@ while trying to import the keypair created to another region we will be prompted
 Since we will be needing the public key to be able to import thr key to another region, we will generate a public key from the private key we have by running the following command
 
 **ssh-keygen -y -f myec2keypair.pem > myec2keypair.pem.pub**
-
+ 
+ - To import the key, simply go to the region where you want the keypair to be, click on action, then select import and you will have to enter thesame name of the key pair that was created in the other region afterwhich you will enter the public key you just generated and finally click on import to move the key into the desired region
 
 
 #### Lab 4.1.4: Test Instance
