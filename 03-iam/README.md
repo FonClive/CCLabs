@@ -112,7 +112,55 @@ of users, groups and permissions, but not necessarily those precise
 
 #### Lab 3.1.2: Customer Managed Policy
 
-Update the template and the corresponding Stack to make the IAM Role's
+How to Create Customer-Managed Policies in AWS
+
+When you initially create your AWS (Amazon Web Services) account, only one AWS-managed policy is in place: AdministratorAccess. However, after you create the first user and log in to AWS using your new administrator account, you can access a large number of AWS-managed policies.
+
+Whenever possible, you should use the AWS-managed policies to ensure that the policy receives automatic updates that reflect changes in AWS functionality. When using a customer-managed policy, you must perform any required updates manually. The following steps get you started using customer-managed policies
+
+Steps to creating a Customer-Management Policies in AWS
+
+Step 1
+
+Sign in to AWS using your administrator account.
+
+Step 2
+
+Navigate to the IAM Management Console.
+
+Step 3
+
+Select Policies in the Navigation pane. You see the Welcome to Managed Policies page.
+
+https://www.dummies.com/wp-content/uploads/aws-mngd-policies.jpg
+
+The Welcome to Managed Policies page explains the policies' uses and gets you started.
+
+Step 4
+
+Click Get Started. You see a list of available AWS-managed policies, as shown. Each of the policy names starts with the word Amazon (to show that it's an AWS-managed policy), followed by the service name (EC2 in the figure), optionally followed by the target of the permission (such as ContainerRegistry), and ending with the kind of permission granted (such as FullAccess). When creating your own customer-managed policies, it's good to follow the same practice to make the names easier to use and consistent with their AWS-managed counterparts
+
+https://www.dummies.com/wp-content/uploads/aws-policy-list.jpg
+
+The list of AWS-managed policies is relatively long.
+
+N:B 
+The policy list tells you the number of entities attached to a policy so that you know whether a policy is actually in use. You can also see the policy creation time and the time someone last edited it. The symbol on the left side of the policy shows the policy type, which is a stylized cube for AWS-managed policies.
+![image](https://user-images.githubusercontent.com/103466963/174418029-be70b8ac-324b-460b-bcf2-a79f4b60504f.png)
+
+Step 5
+
+Click Create Policy.
+
+![image](https://user-images.githubusercontent.com/103466963/174418049-9be6d527-ce1e-4018-aa37-5a7e0c70f0a7.png)
+
+
+
+
+
+Update the template and the corresponding StackWhenever possible, you should use the AWS-managed policies to ensure that the policy receives automatic updates that reflect changes in AWS functionality. When using a customer-managed policy, you must perform any required updates manually. The following steps get you started using customer-managed policies
+
+to make the IAM Role's
 inline policy more generally usable:
 
 - Convert the IAM Role's inline Policies array to a separate
