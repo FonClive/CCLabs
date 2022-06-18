@@ -132,7 +132,8 @@ Step 3
 
 Select Policies in the Navigation pane. You see the Welcome to Managed Policies page.
 
-https://www.dummies.com/wp-content/uploads/aws-mngd-policies.jpg
+![image](https://user-images.githubusercontent.com/103466963/174418127-af05beb7-d96f-43e7-b4a0-dedc32e3346d.png)
+
 
 The Welcome to Managed Policies page explains the policies' uses and gets you started.
 
@@ -140,12 +141,15 @@ Step 4
 
 Click Get Started. You see a list of available AWS-managed policies, as shown. Each of the policy names starts with the word Amazon (to show that it's an AWS-managed policy), followed by the service name (EC2 in the figure), optionally followed by the target of the permission (such as ContainerRegistry), and ending with the kind of permission granted (such as FullAccess). When creating your own customer-managed policies, it's good to follow the same practice to make the names easier to use and consistent with their AWS-managed counterparts
 
-https://www.dummies.com/wp-content/uploads/aws-policy-list.jpg
+![image](https://user-images.githubusercontent.com/103466963/174418170-4671514a-f4c5-4770-9379-447d8b114588.png)
+
 
 The list of AWS-managed policies is relatively long.
 
 N:B 
 The policy list tells you the number of entities attached to a policy so that you know whether a policy is actually in use. You can also see the policy creation time and the time someone last edited it. The symbol on the left side of the policy shows the policy type, which is a stylized cube for AWS-managed policies.
+
+
 ![image](https://user-images.githubusercontent.com/103466963/174418029-be70b8ac-324b-460b-bcf2-a79f4b60504f.png)
 
 Step 5
@@ -154,70 +158,60 @@ Click Create Policy.
 
 ![image](https://user-images.githubusercontent.com/103466963/174418049-9be6d527-ce1e-4018-aa37-5a7e0c70f0a7.png)
 
+AWS provides three options for creating customer-managed policies.
+
+You see the Create Policy page, shown. AWS provides three options for creating a new policy (in order of complexity):
+
+Copy an AWS Managed Policy: An AWS-managed policy acts as a starting point. You then make changes required to customize the policy for your needs. Because this option helps ensure that you create a usable policy and requires the least work, you should use it whenever possible. This example assumes that you copy an existing AWS-managed policy because you follow this route most often.
+Policy Generator: Relies on a wizardlike interface to either allow or deny actions against an AWS service. You can assign the permission to specific resources (in some cases) using an Amazon Resource Name, ARN, or to all resources (using an *, asterisk). (The discussion describes how to create and use ARNs.) A policy can contain multiple permissions, each of which appears as a statement within the policy. After you define policies, the wizard shows you the policy document, which you can edit manually if desired. The wizard uses the policy document to generate the policy. This is the best option to use when you need a single policy to cover multiple services.
+Create Your Own Policy: Defines a policy completely by hand. All you see is the policy document page, which you must fill in manually using appropriate syntax and grammar. The discussion tells you more about how to create a policy completely manually. You use this option only when necessary because the time involved in creating the document is substantial and the potential for error is high
+
+Step 6
+
+Click Copy an AWS-Managed Policy. You see a listing of AWS-managed policies
+
+![image](https://user-images.githubusercontent.com/103466963/174418292-e8d844f0-647c-4e81-bc2f-30109dcc27d7.png)
+
+Choose the policy that you want to modify.
+
+Step 7
+
+Click Select next to the AWS-Managed policy that you want to use as the basis for your customer-managed policy. The example uses the AmazonEC2FullAccess policy as a starting point, but the same steps apply to modifying other policies. You see the Review Policy page shown.
+
+![image](https://user-images.githubusercontent.com/103466963/174418331-03b06fad-88c0-469b-94f6-c5a8c04da2e6.png)
+
+The Review Policy page shows the details about the policy you're modifying.
 
 
+![image](https://user-images.githubusercontent.com/103466963/174418357-ecf90a43-2c91-4c79-b7f6-8c6642b84fa9.png)
 
 
-Update the template and the corresponding StackWhenever possible, you should use the AWS-managed policies to ensure that the policy receives automatic updates that reflect changes in AWS functionality. When using a customer-managed policy, you must perform any required updates manually. The following steps get you started using customer-managed policies
+Step 8
 
-to make the IAM Role's
-inline policy more generally usable:
+Type a new name in the Policy Name field.
+The example uses MyCompanyEC2FullAccessNoCloudWatch as the policy name.
 
-- Convert the IAM Role's inline Policies array to a separate
-  [customer managed policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies)
-  resource.
+Step 9
 
-- Attach the new resource to the IAM Role.
+Modify the Description field as needed to define the changes made. The example adds that the policy doesn't allow access to CloudWatch.
 
-- Update the Stack using the modified template.
+Step 10
 
- 
- ### Visuals:
-  ![image](https://user-images.githubusercontent.com/103466963/166634099-a7935d94-0685-4c09-8281-4d4d2749958e.png)
-  we were able to convert the inline policy to the customer managed policy as seen above
-   .
-   
-   .
-   ![Screenshot (457)](https://user-images.githubusercontent.com/103466963/166635323-4467abe2-e31f-45d8-9795-647bb68cd700.png)
-   This originally the first role we created i.e the readonlyaccess role  
-  
-  
-  ![Screenshot (458)](https://user-images.githubusercontent.com/103466963/166635414-4fe96305-b7f0-4b57-9378-22ac02f6edb9.png)
-   Here we willl be importing or rather attatching a whole new role to the already existing role after selecting the role ,  we will click the import button to add the  new role 
-  
-  ![Screenshot (459)](https://user-images.githubusercontent.com/103466963/166635435-28096092-797d-4b72-873d-8d7df814cc54.png)
-   The lab3-1-1role is fully updated as indicated above
+Modify the Policy Document field as needed to reflect policy changes. The example removes the following policy section from the document: { "Effect": "Allow", "Action": "cloudwatch:*", "Resource": "*" },
 
-  
-#### Lab 3.1.3: Customer Managed Policy Re-Use
+![image](https://user-images.githubusercontent.com/103466963/174418487-92af01cc-c999-4d9b-a286-1c039838a408.png)
 
-Update the template further to demonstrate reuse of the customer managed
-policy:
+Step 11
 
-- Add another IAM Role.
+Click Validate Policy. If the changes you made work as intended, you see a This Policy Is Valid success message at the top of the page. Always validate your policy before you create it.
 
-- Attach the customer managed policy resource to the new role.
+Step 12
 
-- Be sure that you're not referencing an AWS managed policy in the
-  role.
+Click Create Policy. You see a success message on the Policies page, plus a new entry for your policy, as shown. Note that your policy doesn't include a policy type icon. The lack of an icon makes the policy easier to find in the list.
 
-- Add/Update the Description of the customer managed policy to
-  indicate the re-use of the policy.
+![image](https://user-images.githubusercontent.com/103466963/174418539-7a442eca-d53e-452f-9ec0-27b29bac47f7.png)
 
-- Update the Stack. *Did the stack update work?*
-
-  - Query the stack to determine its state.
-  - If the stack update was not successful,
-    [troubleshoot and determine why](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement).
-    
-    #### VISUALS:
-    ![image](https://user-images.githubusercontent.com/103466963/166644697-98fcdf7b-6017-4d36-9cd5-86eb068d3684.png)
-    the existing roles which have been created
-    ![image](https://user-images.githubusercontent.com/103466963/166644724-f0e8fd9a-cad1-423b-97a6-8a1b59b611d8.png)
-    
-    ![image](https://user-images.githubusercontent.com/103466963/166644756-41f89672-04d9-4cae-93c0-efa4d0735c82.png)
-    
-    ![image](https://user-images.githubusercontent.com/103466963/166644784-95f8a811-94d7-4a15-a393-057b30fd1314.png)
+AWS tells you when you've successfully added a new policy.
 
 
 #### Lab 3.1.4: AWS-Managed Policies
