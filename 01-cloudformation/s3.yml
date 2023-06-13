@@ -1,20 +1,29 @@
-AWSTemplateFormationVersion: 2010-09-09
+AWSTemplateFormatVersion: 2010-09-09
 Description: Crate an s3 bucket template
 
 Parameters: 
   S3BucketName:
     Description: Name of s3 bucket 
     Type: String 
-  Environment:
-    Description: Name of the environment where the object is going to be created
-    Type: String 
-    AllowedValues:
-     - dev
-     - prod 
-     - qa
+    Default: mys3
+  # Environment:
+  #   Description: Name of the environment where the object is going to be created
+  #   Type: String 
+  #   AllowedValues:
+  #    - dev
+  #    - prod 
+  #    - qa
 
-  Resources: 
-    mybucket:
-      Type: AWS::S3::Bucket
-      Properties:
-        BucketName: !Sub ${Environment}-${S3BucketName}
+conditions:
+  IspreferredRegion: !Equals [!Ref "AWS::Region", us-east-1]
+    
+
+Resources: 
+  CliveBucket:
+    Type: 'AWS::S3::Bucket'
+    Properties:
+    BucketName: !If [IspreferredRegion, !Join ["-", [!Ref "AWS::AccountId", !Ref S3BucketName]], !Join ["-", [!Ref "AWS::Region", !Ref S3BucketName]]]
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256

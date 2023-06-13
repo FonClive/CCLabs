@@ -1,0 +1,255 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: This template is to creat VPC 
+
+Parameters:
+  EnvironmentName:
+    Description: This is for the name of the AWS environment
+    Type: String 
+    Default: /pamfes/dev/env
+
+  VpcCIDR: 
+    Description: please enter Ip range(cidr block) for VPC 
+    Type: String 
+    Default: 10.0.0.0/16 
+  
+  PublicSubnet1CIDR: 
+    Description: Please enter Ip range(cidr block) for PublicSubnet1
+    Type: String
+    Default: 10.0.1.0/24
+  
+  PublicSubnet2CIDR: 
+    Description: Please enter Ip range(cidr block) for Publicsubnet2 
+    Type: String 
+    Default: 10.0.2.0/24
+  
+  PrivateSubnet1CIDR: 
+    Description: Please enter Ip range(cidr block) for PublicSubnet1
+    Type: String 
+    Default: 10.0.3.0/24
+  
+  PrivateSubnet2CIDR: 
+    Description: Please enter Ip range(cidr block) for PrivateSubnet2
+    Type: String 
+    Default: 10.0.4.0/24
+  
+Resources:
+  ChesterVPC:
+    Type: AWS::EC2::VPC
+    Properties: 
+      CidrBlock: !Ref VpcCIDR 
+      EnableDnsHostnames: true
+      Tags: 
+        - Key: Name
+          Value: !Ref EnvironmentName
+  ChesterInternetGateway: 
+    Type: AWS::EC2::InternetGateway
+    Properties:
+      Tags: 
+        - key: Name 
+          value: !Ref EnvironmentName 
+  
+  ChesterInternetGatewayAttachment: 
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      InternetGatewayId: !Ref ChesterInternetGateway
+      VpcId: !Ref ChesterVPC 
+
+  ChesterPublicSubnet1:
+    Type: AWS::EC2::Subnet
+    Properties: 
+      VpcId: !Ref ChesterVPC
+      AvailibilityZone: !Select [0, !GetAZs ""]
+      CidrBlock: !Ref PublicSubnet1CIDR
+      MapPublicIpOnLaunch: true
+      Tags: 
+        - Key: Name
+          value: !Sub ${EnvironmentName}-Public-Subnet1
+
+  ChesterPublicSubnet2:
+    Type: AWS::EC2::Subnet
+    Properties: 
+      VpcId: !Ref ChesterVPC
+      AvailibilityZone: !Select [1, !GetAZs ""]
+      CidrBlock: !Ref PublicSubnet2CIDR
+      MapPublicIpOnLaunch: true
+      Tags: 
+        - Key: Name
+          value: !Sub ${EnvironmentName}-Public-Subnet2
+  
+  ChesterPrivateSubnet1:
+    Type: AWS::EC2::Subnet
+    Properties: 
+      VpcId: !Ref ChesterVPC
+      AvailibilityZone: !Select [0, !GetAZs ""]
+      CidrBlock: !Ref PrivateSubnet1CIDR
+      MapPublicIpOnLaunch: false
+      Tags: 
+        - Key: Name
+          value: !Sub ${EnvironmentName}-Private-Subnet1
+  
+  ChesterPrivateSubnet2:
+    Type: AWS::EC2::Subnet
+    Properties: 
+      VpcId: !Ref ChesterVPC
+      AvailibilityZone: !Select [1, !GetAZs ""]
+      CidrBlock: !Ref PublicSubnet1CIDR
+      MapPublicIpOnLaunch: true
+      Tags: 
+        - Key: Name
+          value: !Sub ${EnvironmentName}-Private-Subnet2
+
+  ChesterNatGatewayEIP1:
+    Type: AWS::EC2::EIP
+    DependsOn: ChesterInternetGatewayAttachment
+    Properties:
+      Domain: vpc
+  
+  ChesterNatGatewayEIP2:
+    Type: AWS::EC2::EIP
+    DependsOn: ChesterInternetGatewayAttachment
+    Properties:
+      Domain: vpc
+
+  ChesterNatGateway1: 
+    Type: AWS::EC2::NatGateway
+    Properties:
+      AllocationId: !GetAtt ChesterNatGatewayEIP1.AllocationId
+      SubnetId: !Ref ChesterPublicSubnet1
+  
+  ChesterNatGateway2: 
+    Type: AWS::EC2::NatGateway
+    Properties:
+      AllocationId: !GetAtt ChesterNatGatewayEIP2.AllocationId
+      SubnetId: !Ref ChesterPublicSubnet2
+  
+  ChesterPublicRouteTable:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId: !Ref ChesterVPC
+      Tags: 
+        - key: Name
+          value: !Sub ${EnvironmentName}-Public-Route
+  
+  ChesterDefaultPublicRoute: 
+    Type: AWS::EC2::Route
+    DependsOn: InternetGatewayAttachment
+    Properties:
+      RouteTableId: !Ref ChesterPublicRouteTable
+      DestinationCidrBlock: 0.0.0.0/0
+      GatewayId: !Ref ChesterInternetGateway
+  
+  ChesterPublicSubnet1RouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId: !Ref ChesterPublicSubnet1
+      RouteTableId: !Ref ChesterPublicRouteTable
+  
+  ChesterPublicSubnet2RouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId: !Ref ChesterPublicSubnet2
+      RouteTableId: !Ref ChesterPublicRouteTable
+      
+  ChesterPrivateRouteTable1:
+    Type: AWS::EC2::RouteTable
+    Properties:
+        VpcId: !Ref ChesterVPC
+        Tags:
+            - Key: Name
+              Value: !Sub ${EnvironmentName} Private Routes (AZ1)
+
+  ChesterDefaultPrivateRoute1:
+    Type: AWS::EC2::Route
+    Properties:
+        RouteTableId: !Ref PrivateRouteTable1
+        DestinationCidrBlock: 0.0.0.0/0
+        NatGatewayId: !Ref ChesterNatGateway1
+
+  ChesterPrivateSubnet1RouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+        RouteTableId: !Ref ChesterPrivateRouteTable1
+        SubnetId: !Ref ChesterPrivateSubnet1
+
+  ChesterPrivateRouteTable2:
+    Type: AWS::EC2::RouteTable
+    Properties:
+        VpcId: !Ref ChesterVPC
+        Tags:
+            - Key: Name
+              Value: !Sub ${EnvironmentName} Private Routes (AZ2)
+
+  ChesterDefaultPrivateRoute2:
+    Type: AWS::EC2::Route
+    Properties:
+      RouteTableId: !Ref ChesterPrivateRouteTable2
+      DestinationCidrBlock: 0.0.0.0/0
+      NatGatewayId: !Ref ChesterNatGateway2
+
+  ChesterPrivateSubnet2RouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+        RouteTableId: !Ref ChesterPrivateRouteTable2
+        SubnetId: !Ref ChesterPrivateSubnet2
+      
+Outputs:
+    VPC:
+        Description: A reference to the created VPC
+        Value: !Ref ChesterVPC
+        Export:
+            Name: !Sub ${EnvironmentName}-VPCID
+
+    VPCPublicRouteTable:
+        Description: Public Routing
+        Value: !Ref ChesterPublicRouteTable
+        Export:
+            Name: !Sub ${EnvironmentName}-PUB-RT
+
+    VPCPrivateRouteTable1:
+        Description: Private Routing AZ1
+        Value: !Ref ChesterPrivateRouteTable1
+        Export:
+            Name: !Sub ${EnvironmentName}-PRI1-RT
+
+    VPCPrivateRouteTable2:
+        Description: Private Routing AZ2
+        Value: !Ref ChesterPrivateRouteTable2
+        Export:
+            Name: !Sub ${EnvironmentName}-PRI2-RT
+
+    PublicSubnets:
+        Description: A list of the public subnets
+        Value: !Join [",", [!Ref ChesterPublicSubnet1, !Ref ChesterPublicSubnet2]]
+        Export:
+            Name: !Sub ${EnvironmentName}-PUB-NETS
+
+    PrivateSubnets:
+        Description: A list of the private subnets
+        Value: !Join [",", [!Ref ChesterPrivateSubnet1, !Ref ChesterPrivateSubnet2]]
+        Export:
+            Name: !Sub ${EnvironmentName}-PRIV-NETS
+
+    PublicSubnet1:
+        Description: A reference to the public subnet in the 1st Availability Zone
+        Value: !Ref ChesterPublicSubnet1
+        Export:
+            Name: !Sub ${EnvironmentName}-PUB1-SN
+
+    PublicSubnet2:
+        Description: A reference to the public subnet in the 2nd Availability Zone
+        Value: !Ref ChesterPublicSubnet2
+        Export:
+            Name: !Sub ${EnvironmentName}-PUB2-SN
+
+    PrivateSubnet1:
+        Description: A reference to the private subnet in the 1st Availability Zone
+        Value: !Ref ChesterPrivateSubnet1
+        Export:
+            Name: !Sub ${EnvironmentName}-PRI1-SN
+
+    PrivateSubnet2:
+        Description: A reference to the private subnet in the 2nd Availability Zone
+        Value: !Ref ChesterPrivateSubnet2
+        Export:
+            Name: !Sub ${EnvironmentName}-PRI2-SN
+    

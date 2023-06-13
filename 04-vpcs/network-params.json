@@ -1,0 +1,27 @@
+[
+    {
+        "ParameterKey": "EnvironmentName",
+        "ParameterValue": "pamfes/qa/env"
+    },
+    {
+        "ParameterKey": "VpcCIDR",
+        "ParameterValue": "10.0.1.0/16"
+    },
+    {
+        "ParameterKey": "PublicSubnet1CIDR",
+        "ParameterValue":"10.0.1.0/28"
+    },
+    {
+        "ParameterKey": "PublicSubnet2CIDR",
+        "ParameterValue":"10.0.1.16/28"
+    },
+    {
+        "ParameterKey": "PrivateSubnet1CIDR",
+        "ParameterValue":"10.0.1.32/28"
+    },
+    {
+        "ParameterKey": "PrivateSubnet2CIDR",
+        "ParameterValue":"10.0.1.48/28"
+    }
+
+]

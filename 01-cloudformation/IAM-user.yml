@@ -1,0 +1,50 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: Crate an IAM template
+
+Parameters:
+  UserName:
+    Description: Defines the name of the IAM user 
+    Type: String 
+  Password:
+    Description: Defines user password
+    Type: String
+
+Resources:
+  S3TestUser:
+    Type: 'AWS::IAM::User'
+    Properties:
+      LoginProfile:
+        Password: !Ref Password
+      Path: /
+      UserName: !Ref UserName
+
+  S3TestUserManagedPolicy:
+    Type: AWS::IAM::ManagedPolicy
+    Properties: 
+      Description: Managed Policy for controlling  s3 testuser
+      Path: /
+      PolicyDocument: 
+        {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow", 
+              "Action": [
+                  "s3:Get*",
+                  "s3:List*"
+                  ],
+              "Resource": "*"
+
+
+            }]        
+        }
+      
+      Users: 
+        - !Ref UserName
+
+Outputs: 
+ s3TestManagePolicyArn:
+  Description: Expose the manage Policy arn
+  Value:  !Ref S3TestUserManagedPolicy
+  Export:
+    Name: 's3TestManagePolicyArn'
