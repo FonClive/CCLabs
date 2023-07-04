@@ -1,0 +1,82 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: This template is to create EC2 instances
+
+Parameters:
+  UbuntuAMI:
+    Type: String
+    Default: ami-053b0d53c279acc90
+  EnvironmentName:
+    Description: This is for the name of the AWS environment
+    Type: String 
+    Default: /pamfes/dev/env
+  
+  # VPCID:
+  #   Type: 'AWS::EC2::VPC::Id'
+  # SubnetID:
+  #   Type: 'AWS::EC2::Subnet::Id'
+Resources:
+  LaunchTemplate:
+    Type: AWS::EC2::LaunchTemplate
+    Properties:
+      LaunchTemplateName: EC2LaunchTemplate
+      LaunchTemplateData:
+        InstanceType: t3.nano
+        ImageId: !Ref UbuntuAMI
+        IamInstanceProfile:
+          Name: !Ref MyIamInstanceProfile
+        NetworkInterfaces:
+          - DeviceIndex: 0
+            AssociatePublicIpAddress: True
+            SubnetId: 
+              Fn::ImportValue:
+                !Sub "${EnvironmentName}-PUB1-SN"
+        KeyName: Udacity
+        #SecurityGroupIds: !GetAtt ServerSecurityGroup.Arn
+
+       
+  MyIamInstanceProfile:
+    Type: AWS::IAM::InstanceProfile
+    Properties:
+      InstanceProfileName: MyIamInstanceProfile
+      Path: "/"
+      Roles:
+      - MyAdminRole
+  
+  MyInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      AvailabilityZone: us-east-1a
+      LaunchTemplate: 
+          LaunchTemplateId: !Ref LaunchTemplate
+          Version: '1'
+
+      # ImageId: ami-022e1a32d3f742bd8
+      # InstanceType: t2.micro
+      # SecurityGroups:
+      #   - !Ref SSHSecurityGroup
+      #   - !Ref ServerSecurityGroup
+      # SubnetId: 
+      #   - Fn::ImportValue: 
+      #     - !Sub 
+
+  # an elastic IP for our instance
+  # MyEIP:
+  #   Type: AWS::EC2::EIP
+  #   Properties:
+  #     InstanceId: !Ref MyInstance
+
+
+  # our second EC2 security group
+  ServerSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: web security group
+      SecurityGroupIngress:
+      - IpProtocol: tcp
+        FromPort: 80
+        ToPort: 80
+        CidrIp: 0.0.0.0/0
+      - IpProtocol: tcp
+        FromPort: 22
+        ToPort: 22
+        CidrIp: 192.168.1.1/32

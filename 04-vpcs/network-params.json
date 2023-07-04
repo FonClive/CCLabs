@@ -1,11 +1,11 @@
 [
     {
         "ParameterKey": "EnvironmentName",
-        "ParameterValue": "pamfes/qa/env"
+        "ParameterValue": "BigChester"
     },
     {
         "ParameterKey": "VpcCIDR",
-        "ParameterValue": "10.0.1.0/16"
+        "ParameterValue": "10.0.1.0/24"
     },
     {
         "ParameterKey": "PublicSubnet1CIDR",
